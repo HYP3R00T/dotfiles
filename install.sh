@@ -8,7 +8,7 @@ sudo apt install nala -y
 
 # Install packages
 sudo nala install curl git \
-stow tmux zsh \
+stow tmux zsh neofetch\
 -y
 
 # Install Oh My Zsh
@@ -54,3 +54,5 @@ cd ~/.dotfiles
 
 # Use stow to symlink dotfiles to home directory
 stow --target=$HOME .
+
+clear
