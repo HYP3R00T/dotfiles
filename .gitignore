@@ -1,2 +1,3 @@
-.config/astro
-.config/htop
+.config/astro/
+.config/htop/
+.config/configstore/
