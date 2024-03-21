@@ -16,3 +16,4 @@ eval "$(starship init zsh)"
 
 alias py="python3"
 alias pya="source ./.venv/bin/activate"
+alias tcard="python3 -m terminal_card"
