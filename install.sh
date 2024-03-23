@@ -7,9 +7,9 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nala -y
 
 # Install packages
-sudo nala install curl git \
-stow tmux zsh neofetch\
--y
+sudo nala install git \
+stow tmux zsh neofetch \
+ -y
 
 # Install Oh My Zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" <<< $'\n'
