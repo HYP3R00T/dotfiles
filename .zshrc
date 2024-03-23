@@ -17,3 +17,16 @@ eval "$(starship init zsh)"
 alias py="python3"
 alias pya="source ./.venv/bin/activate"
 alias tcard="python3 -m terminal_card"
+
+function tnew() {
+    local parent_name="$(basename "$(dirname "$(pwd)")"| tr -d "[:space:]-")"
+    local current_name="$(basename "$(pwd)" | tr -d "[:space:]-")"
+    local session_name="${parent_name}_${current_name}"
+    
+    if tmux has-session -t "$session_name" 2>/dev/null; then
+        tmux attach-session -t "$session_name"
+    else
+        tmux new-session -s "$session_name"
+    fi
+}
+alias tm='tnew'
