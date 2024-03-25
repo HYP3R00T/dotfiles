@@ -12,7 +12,15 @@ plugins=(
 # source ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $ZSH/oh-my-zsh.sh
 
+# Add to path variable
+path+=('$HOME/.local/bin')
+export PATH
+
+# Alt method for the above
+# export PATH=/home/hyperoot/.local/bin:$PATH
+
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 alias py="python3"
 alias pya="source ./.venv/bin/activate"
