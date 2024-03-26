@@ -13,11 +13,11 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 # Add to path variable
-path+=('$HOME/.local/bin')
-export PATH
+# path+=('$HOME/.local/bin')
+# export PATH
 
 # Alt method for the above
-# export PATH=/home/hyperoot/.local/bin:$PATH
+export PATH=/home/hyperoot/.local/bin:$PATH
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
