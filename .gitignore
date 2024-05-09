@@ -1,3 +1,4 @@
 .config/astro/
 .config/htop/
 .config/configstore/
+.config/pypoetry/auth.toml
