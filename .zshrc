@@ -21,10 +21,12 @@ export PATH=/home/hyperoot/.local/bin:$PATH
 
 eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
+eval "$(pyenv virtualenv-init -)"
 
 alias py="python3"
 alias pya="source ./.venv/bin/activate"
 alias tcard="python3 -m terminal_card"
+alias cd="z"
 
 function tnew() {
     local parent_name="$(basename "$(dirname "$(pwd)")"| tr -d "[:space:]-")"

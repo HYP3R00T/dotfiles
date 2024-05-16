@@ -7,7 +7,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nala -y
 
 # Install packages
-sudo nala install git stow tmux zsh neofetch fzf -y
+sudo nala install git stow tmux zsh neofetch fzf build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
 
 # Install zoxide
 curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
@@ -18,8 +18,18 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 # Install Starship prompt
 sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
+# Install pyenv
+curl https://pyenv.run | bash
+
+# Install python version 3.10 and 3 (latest)
+pyenv install 3.10
+pyenv install 3
+
+#Install python-poetry
+curl -sSL https://install.python-poetry.org | python3 -
+
 # Change default shell to zsh
-sudo chsh -s $(which zsh)
+chsh -s $(which zsh)
 
 # Clone zsh-autosuggestions plugin
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
