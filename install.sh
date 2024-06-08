@@ -7,35 +7,46 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install nala -y
 
 # Install packages
-sudo nala install git stow tmux zsh neofetch fzf build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev curl git libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev -y
-
-# Install zoxide
-curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash
-
-# Install Oh My Zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" <<< $'\n'
-
-# Install Starship prompt
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-
-# Install pyenv
-curl https://pyenv.run | bash
-
-# Install python version 3.10 and 3 (latest)
-pyenv install 3.10
-pyenv install 3
-
-#Install python-poetry
-curl -sSL https://install.python-poetry.org | python3 -
+sudo nala install \
+stow \
+tmux \
+zsh \
+curl \
+git \
+neofetch \
+build-essential \
+libssl-dev \
+zlib1g-dev \
+libbz2-dev \
+libreadline-dev \
+libsqlite3-dev \
+libncursesw5-dev \
+xz-utils \
+tk-dev \
+libxml2-dev \
+libxmlsec1-dev \
+libffi-dev \
+liblzma-dev \
+-y
 
 # Change default shell to zsh
 chsh -s $(which zsh)
 
-# Clone zsh-autosuggestions plugin
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# Install zinit
+yes | bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
 
-# Clone zsh-syntax-highlighting plugin
-git clone https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+yes | ~/.fzf/install
+
+# Install pyenv
+curl https://pyenv.run | bash
+
+#Install python-poetry
+curl -sSL https://install.python-poetry.org | python3 -
 
 # Remove default files and folders that might have been created while installing
 paths_to_delete=(
