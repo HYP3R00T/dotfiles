@@ -2,3 +2,4 @@
 .config/htop/
 .config/configstore/
 .config/pypoetry/auth.toml
+.config/chromium/Crash Reports

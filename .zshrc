@@ -1,46 +1,12 @@
-# Set the directory we want to store zinit and plugins
-ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+# Initiate starship
+eval "$(starship init zsh)"
 
-# Download Zinit, if it's not there yet
-if [ ! -d "$ZINIT_HOME" ]; then
-   mkdir -p "$(dirname $ZINIT_HOME)"
-   git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-fi
-
-# Source/Load zinit
-source "${ZINIT_HOME}/zinit.zsh"
-
-zinit ice as"command" from"gh-r" \
-          atclone"./starship init zsh > init.zsh; ./starship completions zsh > _starship" \
-          atpull"%atclone" src"init.zsh"
-zinit light starship/starship
-
-# Add to path variable
-export PATH=/home/hyperoot/.local/bin:$PATH
-# export PATH=/home/$HOME/.local/bin:$PATH
-
-# Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
-zinit light zsh-users/zsh-autosuggestions
-zinit light Aloxaf/fzf-tab
-
-# Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-# zinit snippet OMZP::archlinux
-# zinit snippet OMZP::aws
-# zinit snippet OMZP::kubectl
-# zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
-
-# Load completions
-autoload -Uz compinit && compinit
-
-zinit cdreplay -q
+# Activate plugins
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # History
-HISTSIZE=5000
+HISTSIZE=2000
 HISTFILE=~/.zsh_history
 SAVEHIST=$HISTSIZE
 HISTDUP=erase
@@ -52,18 +18,29 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion styling
-zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
+# Completion
+autoload -Uz compinit && compinit
+
+# Keybindings
+bindkey '^[[A' history-search-backward
+bindkey '^[[B' history-search-forward
+bindkey '^[[C' forward-char
+bindkey '^[[D' backward-char
+
+# Keybindings workarounds for Windows Terminal
+if [[ -n $WT_SESSION ]]; then
+    bindkey '^[OA' history-search-backward
+    bindkey '^[OB' history-search-forward
+    bindkey '^[OC' forward-char
+    bindkey '^[OD' backward-char
+    export COLORTERM='truecolor'
+fi
 
 function tnew() {
-    local parent_name="$(basename "$(dirname "$(pwd)")"| tr -d "[:space:]-")"
+    local parent_name="$(basename "$(dirname "$(pwd)")" | tr -d "[:space:]-")"
     local current_name="$(basename "$(pwd)" | tr -d "[:space:]-")"
     local session_name="${parent_name}_${current_name}"
-    
+
     if tmux has-session -t "$session_name" 2>/dev/null; then
         tmux attach-session -t "$session_name"
     else
@@ -79,18 +56,21 @@ alias pya="source ./.venv/bin/activate"
 alias cd="z"
 
 # Add to path variable
-# export PATH=/home/hyperoot/.local/bin:$PATH
 export PATH=/home/$HOME/.local/bin:$PATH
 
-# Shell integrations
-# eval "$(fzf --zsh)"
+# zoxide - https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init zsh)"
 
+# nvm - https://github.com/nvm-sh/nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+
+# pyenv - https://github.com/pyenv/pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# Add to path variable
-export PATH=/home/hyperoot/.local/bin:$PATH
-# export PATH=/home/$HOME/.local/bin:$PATH
-eval "$(zoxide init zsh)"
+# python poetry - https://github.com/python-poetry/poetry
+fpath+=~/.zfunc
+autoload -Uz compinit && compinit

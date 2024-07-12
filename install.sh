@@ -32,20 +32,20 @@ liblzma-dev \
 # Change default shell to zsh
 chsh -s $(which zsh)
 
-# Install zinit
-yes | bash -c "$(curl --fail --show-error --silent --location https://raw.githubusercontent.com/zdharma-continuum/zinit/HEAD/scripts/install.sh)"
+# Install zsh plugin
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
-# Install zoxide
+# Install zoxide - https://github.com/ajeetdsouza/zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
-# Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-yes | ~/.fzf/install
+# Install nvm - https://github.com/nvm-sh/nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
-# Install pyenv
+# Install pyenv - https://github.com/pyenv/pyenv
 curl https://pyenv.run | bash
 
-#Install python-poetry
+#Install python-poetry - https://github.com/python-poetry/poetry
 curl -sSL https://install.python-poetry.org | python3 -
 
 # Remove default files and folders that might have been created while installing
@@ -68,6 +68,9 @@ for item in "${paths_to_delete[@]}"; do
     fi
     echo "Items deleted"
 done
+
+mkdir ~/.zfunc
+poetry completions zsh > ~/.zfunc/_poetry
 
 # Clone dotfiles repository
 git clone https://github.com/HYP3R00T/.dotfiles ~/.dotfiles
