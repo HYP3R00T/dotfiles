@@ -33,7 +33,7 @@ liblzma-dev \
 chsh -s $(which zsh)
 
 # Install starship
-curl -sS https://starship.rs/install.sh | sh
+curl -sS https://starship.rs/install.sh | sh -s -- -y
 
 # Install zsh plugin
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
