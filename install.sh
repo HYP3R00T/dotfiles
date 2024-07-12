@@ -32,6 +32,9 @@ liblzma-dev \
 # Change default shell to zsh
 chsh -s $(which zsh)
 
+# Install starship
+curl -sS https://starship.rs/install.sh | sh
+
 # Install zsh plugin
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting

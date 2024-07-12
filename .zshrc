@@ -56,7 +56,7 @@ alias pya="source ./.venv/bin/activate"
 alias cd="z"
 
 # Add to path variable
-export PATH=/home/$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # zoxide - https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init zsh)"
