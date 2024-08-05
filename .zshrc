@@ -18,9 +18,6 @@ setopt hist_save_no_dups
 setopt hist_ignore_dups
 setopt hist_find_no_dups
 
-# Completion
-autoload -Uz compinit && compinit
-
 # Keybindings
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
@@ -57,6 +54,7 @@ alias cd="z"
 
 # Add to path variable
 export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.console-ninja/.bin:$PATH
 
 # zoxide - https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init zsh)"
@@ -71,6 +69,5 @@ export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
-# python poetry - https://github.com/python-poetry/poetry
-fpath+=~/.zfunc
+# Completion
 autoload -Uz compinit && compinit
