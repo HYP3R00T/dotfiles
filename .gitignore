@@ -1,6 +1,6 @@
-dotfiles/.config/astro/
-dotfiles/.config/chromium/
-dotfiles/.config/configstore/
-dotfiles/.config/htop/
-dotfiles/.config/pulse/
-dotfiles/.config/pypoetry/
+configurations/.config/astro/
+configurations/.config/chromium/
+configurations/.config/configstore/
+configurations/.config/htop/
+configurations/.config/pulse/
+configurations/.config/pypoetry/
