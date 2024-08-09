@@ -1,5 +1,6 @@
-.config/astro/
-.config/htop/
-.config/configstore/
-.config/pypoetry/auth.toml
-.config/chromium/Crash Reports
+dotfiles/.config/astro/
+dotfiles/.config/chromium/
+dotfiles/.config/configstore/
+dotfiles/.config/htop/
+dotfiles/.config/pulse/
+dotfiles/.config/pypoetry/

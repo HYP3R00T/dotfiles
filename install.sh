@@ -82,6 +82,6 @@ git clone https://github.com/HYP3R00T/.dotfiles ~/.dotfiles
 cd ~/.dotfiles
 
 # Use stow to symlink dotfiles to home directory
-stow --target=$HOME .
+stow --target=$HOME dotfiles
 
 clear

@@ -33,15 +33,28 @@ if [[ -n $WT_SESSION ]]; then
     export COLORTERM='truecolor'
 fi
 
+# A better way to handle tmux sessions
 function tnew() {
     local parent_name="$(basename "$(dirname "$(pwd)")" | tr -d "[:space:]-")"
     local current_name="$(basename "$(pwd)" | tr -d "[:space:]-")"
-    local session_name="${parent_name}_${current_name}"
+    local session_name="Hyperspace"
+    local window_name="${current_name}"
 
-    if tmux has-session -t "$session_name" 2>/dev/null; then
-        tmux attach-session -t "$session_name"
+    # Check if any tmux session exists
+    if tmux list-sessions 2>/dev/null | grep -q "^"; then
+        # Check if a window for the current directory already exists
+        if tmux list-windows -t "$(tmux display-message -p '#S')" | grep -q "${window_name}"; then
+            # If the window exists, switch to it
+            tmux select-window -t "$window_name"
+        else
+            # If the window doesn't exist, create a new one
+            tmux new-window -n "$window_name" -c "$(pwd)"
+            tmux select-window -t "$window_name"
+        fi
+        tmux attach-session -t "$(tmux display-message -p '#S')"
     else
-        tmux new-session -s "$session_name"
+        # No existing session, create a new one and attach to it
+        tmux new-session -s "$session_name" -n "$window_name" -c "$(pwd)"
     fi
 }
 
