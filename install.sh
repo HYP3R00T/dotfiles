@@ -8,26 +8,26 @@ sudo apt install nala -y
 
 # Install packages
 sudo nala install \
-stow \
-tmux \
-zsh \
-curl \
-git \
-neofetch \
-build-essential \
-libssl-dev \
-zlib1g-dev \
-libbz2-dev \
-libreadline-dev \
-libsqlite3-dev \
-libncursesw5-dev \
-xz-utils \
-tk-dev \
-libxml2-dev \
-libxmlsec1-dev \
-libffi-dev \
-liblzma-dev \
--y
+    stow \
+    tmux \
+    zsh \
+    curl \
+    git \
+    neofetch \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libreadline-dev \
+    libsqlite3-dev \
+    libncursesw5-dev \
+    xz-utils \
+    tk-dev \
+    libxml2-dev \
+    libxmlsec1-dev \
+    libffi-dev \
+    liblzma-dev \
+    -y
 
 # Change default shell to zsh
 chsh -s $(which zsh)
@@ -48,8 +48,11 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 # Install pyenv - https://github.com/pyenv/pyenv
 curl https://pyenv.run | bash
 
-#Install python-poetry - https://github.com/python-poetry/poetry
+# Install python-poetry - https://github.com/python-poetry/poetry
 curl -sSL https://install.python-poetry.org | python3 -
+
+# Install uv - https://github.com/astral-sh/uv
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Remove default files and folders that might have been created while installing
 paths_to_delete=(
@@ -73,7 +76,7 @@ for item in "${paths_to_delete[@]}"; do
 done
 
 mkdir ~/.zfunc
-poetry completions zsh > ~/.zfunc/_poetry
+poetry completions zsh >~/.zfunc/_poetry
 
 # Clone dotfiles repository
 git clone https://github.com/HYP3R00T/.dotfiles ~/.dotfiles
