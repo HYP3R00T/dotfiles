@@ -23,6 +23,10 @@ bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
 bindkey '^[[C' forward-char
 bindkey '^[[D' backward-char
+bindkey "^[[1;5D" backward-word
+bindkey "^[[1;5C" forward-word
+bindkey "^H" backward-kill-word
+bindkey "^?" backward-delete-char
 
 # Keybindings workarounds for Windows Terminal
 if [[ -n $WT_SESSION ]]; then
