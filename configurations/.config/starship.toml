@@ -4,6 +4,9 @@ symbol = "  "
 [buf]
 symbol = " "
 
+[battery]
+disabled = true
+
 [c]
 symbol = " "
 
@@ -54,6 +57,8 @@ symbol = " "
 
 [hostname]
 ssh_symbol = " "
+format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
+disabled = true
 
 [java]
 symbol = " "
@@ -155,6 +160,9 @@ symbol = " "
 
 [swift]
 symbol = " "
+
+[username]
+disabled = true
 
 [zig]
 symbol = " "
