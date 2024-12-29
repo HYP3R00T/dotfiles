@@ -71,8 +71,7 @@ alias cd="z"
 
 # Add to path variable
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.console-ninja/.bin:$PATH
-export PATH=$HOME/.cargo/env:$PATH
+export PATH=$PATH:/home/hyperoot/bin
 
 # zoxide - https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init zsh)"
@@ -90,4 +89,4 @@ eval "$(pyenv init -)"
 # Completion
 autoload -Uz compinit && compinit
 
-. "$HOME/.cargo/env"
+source '/home/hyperoot/lib/azure-cli/az.completion'
