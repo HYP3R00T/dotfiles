@@ -4,3 +4,4 @@ configurations/.config/configstore/
 configurations/.config/htop/
 configurations/.config/pulse/
 configurations/.config/pypoetry/
+configurations/.config/uv/
