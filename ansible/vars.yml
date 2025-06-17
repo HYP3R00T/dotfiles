@@ -1,0 +1,4 @@
+# Git configuration
+git_user_name: "hyperoot"
+git_user_email: "rajesh@hyperoot.dev"
+zsh_autosuggest_highlight_style: "fg=#7f849c"

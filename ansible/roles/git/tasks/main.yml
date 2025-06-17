@@ -1,0 +1,32 @@
+- name: Debug Git variables
+  debug:
+    msg:
+    - "Git User Name: {{ git_user_name }}"
+    - "Git User Email: {{ git_user_email }}"
+
+- name: Check if Git is installed
+  ansible.builtin.command: git --version
+  register: git_check
+  changed_when: false
+  failed_when: git_check.rc != 0
+
+- name: Install Git if not installed
+  ansible.builtin.package:
+    name: git
+    state: present
+  when: git_check.failed
+  become: true
+
+- name: Configure Git username
+  ansible.builtin.command:
+    cmd: git config --global user.name "{{ git_user_name }}"
+  when: git_user_name is defined
+  changed_when: false
+  become: false
+
+- name: Configure Git email
+  ansible.builtin.command:
+    cmd: git config --global user.email "{{ git_user_email }}"
+  when: git_user_email is defined
+  changed_when: false
+  become: false
