@@ -1,0 +1,11 @@
+{
+    "shellcheck.enable": true,
+    "shellcheck.enableQuickFix": true,
+    "shellcheck.run": "onType",
+    "[shellscript]": {
+        "editor.defaultFormatter": "mkhl.shfmt"
+    },
+    "shellcheck.ignorePatterns": {
+        "**/.shellcheckrc": true
+    }
+}
