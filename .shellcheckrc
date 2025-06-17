@@ -1,0 +1,8 @@
+# Disable specific ShellCheck warnings
+disable=SC2086,SC1091
+# Specify shell type
+shell=bash
+# Enable external source following
+external-sources=true
+# Reduce resource usage for large scripts
+extended-analysis=false
