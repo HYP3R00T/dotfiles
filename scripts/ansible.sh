@@ -57,3 +57,31 @@ require_command() {
     echo "✅ Command '$cmd' is available"
   fi
 }
+
+run_ansible_playbook() {
+  local variant="$1"
+  local root_dir
+  root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+  local ansible_dir="$root_dir/ansible"
+  local playbook="$ansible_dir/${variant}.playbook.yml"
+  local cfg="$ansible_dir/ansible.cfg"
+  local inventory="$ansible_dir/inventory.yml"
+  local vars="$ansible_dir/vars.yml"
+  local roles_path="$ansible_dir/roles"
+
+  require_command ansible
+
+  if [[ -f "$playbook" ]]; then
+    echo "📜 Running Ansible Playbook for variant: $variant"
+
+    export ANSIBLE_CONFIG="$cfg"
+    export ANSIBLE_ROLES_PATH="$roles_path"
+    export PATH="$HOME/.local/share/mise/shims:$PATH"
+
+    ansible-playbook -i "$inventory" --extra-vars "@$vars" "$playbook" --ask-become-pass
+  else
+    echo "❌ Ansible playbook not found at $playbook"
+    exit 1
+  fi
+}
