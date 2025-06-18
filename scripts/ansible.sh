@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# === Function: Detect Distro ===
 detect_distro() {
   if [[ -f /etc/os-release ]]; then
     . /etc/os-release
@@ -12,7 +11,6 @@ detect_distro() {
   fi
 }
 
-# === Function: Install Ansible ===
 install_ansible() {
   echo "📦 Installing ansible directly via package manager..."
   DISTRO=$(detect_distro)
@@ -42,7 +40,6 @@ install_ansible() {
   echo "✅ Ansible installed: $(ansible --version | head -n 1)"
 }
 
-# === Function: Require a Command ===
 require_command() {
   local cmd="$1"
   if ! command -v "$cmd" &>/dev/null; then
@@ -57,8 +54,7 @@ require_command() {
     echo "✅ Command '$cmd' is available"
   fi
 }
-
-run_ansible_playbook() {
+handle_ansible(){
   local variant="$1"
   local root_dir
   root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
