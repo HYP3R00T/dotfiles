@@ -34,7 +34,7 @@ fi
 # === 3. Install tools via variant-specific .mise.toml ===
 if [[ -f "$MISE_FILE" ]]; then
   echo "📦 Installing tools from $MISE_FILE..."
-  MISE_CONFIG_FILE="$MISE_FILE" mise install
+  MISE_CONFIG_FILE="$MISE_FILE" "$HOME/.local/bin/mise" install
 else
   echo "⚠️ No mise file found for variant: $VARIANT"
 fi
@@ -42,7 +42,7 @@ fi
 # === 4. Ensure Ansible is installed ===
 if ! command -v ansible &>/dev/null; then
   echo "📦 Installing ansible with mise..."
-  mise install ansible
+  "$HOME/.local/bin/mise" install ansible
 fi
 
 # === 5. Run Ansible Playbook ===
