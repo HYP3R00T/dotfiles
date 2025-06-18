@@ -1,0 +1,18 @@
+- name: Ansible playbook
+  hosts: localhost
+  vars_files:
+    - vars.yml
+  roles:
+    - git
+    - tmux
+    # - helm
+    - zsh
+    # - fzf
+    # - starship
+    # - uv
+    # - poetry
+    # - zoxide
+    # - kubectl
+    # - flux_cli
+    # - nvm
+    # - pnpm
