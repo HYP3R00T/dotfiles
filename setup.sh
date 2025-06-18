@@ -27,25 +27,21 @@ source "$SCRIPT_DIR/scripts/ansible.sh"
 source "$SCRIPT_DIR/scripts/mise.sh"
 source "$SCRIPT_DIR/scripts/chezmoi.sh"
 
-install_ansible()   { handle_ansible   "$VARIANT"; }
-install_mise()      { handle_mise      "$VARIANT"; }
-install_chezmoi()   { handle_chezmoi   "$VARIANT"; }
-
 main() {
   case "$VARIANT" in
     workstation)
-      install_ansible
-      install_mise
-      install_chezmoi
+      handle_ansible "$VARIANT";
+      handle_mise "$VARIANT";
+      handle_chezmoi "$VARIANT";
       ;;
     wsl)
-      install_ansible
-      install_mise
-      install_chezmoi
+      handle_ansible "$VARIANT";
+      handle_mise "$VARIANT";
+      handle_chezmoi "$VARIANT";
       ;;
     devcontainer)
-      install_mise
-      install_chezmoi
+      handle_mise "$VARIANT";
+      handle_chezmoi "$VARIANT";
       ;;
     *)
       echo "❌ Unknown variant: $VARIANT"

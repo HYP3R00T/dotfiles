@@ -11,7 +11,7 @@ detect_distro() {
   fi
 }
 
-install_ansible() {
+setup_ansible() {
   echo "📦 Installing ansible directly via package manager..."
   DISTRO=$(detect_distro)
 
@@ -45,7 +45,7 @@ require_command() {
   if ! command -v "$cmd" &>/dev/null; then
     echo "🔍 Command '$cmd' not found, attempting to install..."
     if [[ "$cmd" == "ansible" ]]; then
-      install_ansible
+      setup_ansible
     else
       echo "❌ No installation logic defined for '$cmd'"
       exit 1
@@ -54,6 +54,7 @@ require_command() {
     echo "✅ Command '$cmd' is available"
   fi
 }
+
 handle_ansible(){
   local variant="$1"
   local root_dir

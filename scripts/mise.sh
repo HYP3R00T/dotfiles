@@ -18,7 +18,7 @@ handle_mise() {
 
   if [[ -f "$mise_file" ]]; then
     echo "📦 Installing tools from $mise_file..."
-    MISE_CONFIG_FILE="$mise_file" mise install
+    MISE_CONFIG_FILE="$mise_file" "$HOME/.local/bin/mise" install
   else
     echo "⚠️ No mise file found for variant: $variant"
   fi
