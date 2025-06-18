@@ -42,6 +42,8 @@ fi
 # === 4. Ensure Ansible is installed ===
 if ! command -v ansible &>/dev/null; then
   echo "📦 Installing ansible with mise..."
+  "$HOME/.local/bin/mise" install pipx
+  "$HOME/.local/bin/mise" use -g pipx
   "$HOME/.local/bin/mise" install ansible
 fi
 
