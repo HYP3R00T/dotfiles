@@ -1,0 +1,9 @@
+- import_playbook: common.yml
+
+# - name: Variant specific setup
+#   hosts: all
+#   gather_facts: yes
+#   vars_files:
+#     - ../vars/devcontainer.yml   # adjust path as needed
+#   roles:
+#     - variant_specific_role

@@ -55,16 +55,15 @@ require_command() {
   fi
 }
 
-handle_ansible(){
+handle_ansible() {
   local variant="$1"
   local root_dir
   root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
   local ansible_dir="$root_dir/ansible"
-  local playbook="$ansible_dir/${variant}.playbook.yml"
+  local playbook="$ansible_dir/playbooks/${variant}.playbook.yml"
   local cfg="$ansible_dir/ansible.cfg"
   local inventory="$ansible_dir/inventory.yml"
-  local vars="$ansible_dir/vars.yml"
   local roles_path="$ansible_dir/roles"
 
   require_command ansible
@@ -76,7 +75,7 @@ handle_ansible(){
     export ANSIBLE_ROLES_PATH="$roles_path"
     export PATH="$HOME/.local/share/mise/shims:$PATH"
 
-    ansible-playbook -i "$inventory" --extra-vars "@$vars" "$playbook" --ask-become-pass
+    ansible-playbook -i "$inventory" "$playbook" --ask-become-pass
   else
     echo "❌ Ansible playbook not found at $playbook"
     exit 1
