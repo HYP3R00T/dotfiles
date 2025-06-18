@@ -116,4 +116,4 @@ if ! shopt -oq posix; then
     fi
 fi
 
-export PATH="$HOME/.local/share/mise/shims:$PATH"
+export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
