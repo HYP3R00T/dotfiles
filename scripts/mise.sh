@@ -10,7 +10,7 @@ handle_mise() {
   root_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
   local mise_file="$root_dir/mise/${variant}.mise.toml"
 
-  if ! command -v mise &>/dev/null; then
+  if ! command -v "$HOME/.local/bin/mise" &>/dev/null; then
     echo "⬇️ Installing mise..."
     curl https://mise.run | sh
     export PATH="$HOME/.local/share/mise/bin:$HOME/.local/share/mise/shims:$PATH"
