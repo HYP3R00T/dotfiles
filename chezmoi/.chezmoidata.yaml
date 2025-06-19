@@ -11,6 +11,7 @@ data:
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
+        dust: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -23,6 +24,7 @@ data:
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
+        dust: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -35,5 +37,6 @@ data:
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
+        dust: true # mise
         pnpm: false # mise
         uv: false # mise
