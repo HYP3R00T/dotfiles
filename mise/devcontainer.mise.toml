@@ -1,4 +1,5 @@
 [tools]
 kubectl = "latest"
+zoxide = "latest"
 uv = "latest"
 # pnpm = "latest"

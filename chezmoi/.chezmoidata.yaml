@@ -3,19 +3,22 @@ data:
   variants:
     workstation:
       install:
-        starship: true
-        kubectl: true
-        pnpm: false
-        uv: true
+        starship: true # ansible
+        kubectl: true # mise
+        zoxide: true # mise
+        pnpm: false # mise
+        uv: true # mise
     wsl:
       install:
-        starship: true
-        kubectl: true
-        pnpm: false
-        uv: true
+        starship: true # ansible
+        kubectl: true # mise
+        zoxide: true # mise
+        pnpm: false # mise
+        uv: true # mise
     devcontainer:
       install:
-        starship: true
-        kubectl: false
-        pnpm: false
-        uv: false
+        starship: true # ansible
+        kubectl: false # mise
+        zoxide: true # mise
+        pnpm: false # mise
+        uv: false # mise

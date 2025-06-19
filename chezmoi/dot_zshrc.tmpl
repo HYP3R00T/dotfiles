@@ -35,8 +35,14 @@ bindkey "^[[1;5C" forward-word
 bindkey "^H" backward-kill-word
 bindkey "^?" backward-delete-char
 
-# Manage paths
+# Aliases
+alias ls='ls --color'
+alias py="python3"
+alias pya="source ./.venv/bin/activate"
+alias k="kubectl"
+alias tf="terraform"
 
+# Manage paths
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
 
 # mise setup
@@ -47,13 +53,20 @@ eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 {{ end }}
 
-
 {{ if $install.kubectl }}
 # kubectl setup
 if ! command -v kubectl &>/dev/null; then
     mise use -g kubectl
 fi
 source <(kubectl completion zsh)
+{{ end }}
+
+{{ if $install.zoxide }}
+# zoxide setup
+if ! command -v zoxide &>/dev/null; then
+    mise use -g zoxide
+fi
+eval "$(zoxide init zsh --cmd cd)"
 {{ end }}
 
 {{ if $install.uv }}
