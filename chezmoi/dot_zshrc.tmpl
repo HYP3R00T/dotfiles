@@ -62,6 +62,14 @@ fi
 source <(kubectl completion zsh)
 {{ end }}
 
+{{ if $install.terraform }}
+# terraform setup
+if ! command -v terraform &>/dev/null; then
+    mise use -g terraform
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.zoxide }}
 # zoxide setup
 if ! command -v zoxide &>/dev/null; then

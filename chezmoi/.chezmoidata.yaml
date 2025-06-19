@@ -5,6 +5,7 @@ data:
       install:
         starship: true # ansible
         kubectl: true # mise
+        terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
         pnpm: false # mise
@@ -13,6 +14,7 @@ data:
       install:
         starship: true # ansible
         kubectl: true # mise
+        terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
         pnpm: false # mise
@@ -21,6 +23,7 @@ data:
       install:
         starship: true # ansible
         kubectl: false # mise
+        terraform: false # mise
         zoxide: true # mise
         pnpm: false # mise
         uv: false # mise
