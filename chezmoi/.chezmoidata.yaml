@@ -21,6 +21,7 @@ data:
         shellcheck: true # mise
         jq: true # mise
         jqp: true # mise
+        podman: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -43,6 +44,7 @@ data:
         shellcheck: true # mise
         jq: true # mise
         jqp: true # mise
+        podman: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -65,5 +67,6 @@ data:
         shellcheck: true # mise
         jq: true # mise
         jqp: true # mise
+        podman: true # mise
         pnpm: false # mise
         uv: false # mise

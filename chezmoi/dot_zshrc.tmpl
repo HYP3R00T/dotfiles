@@ -189,6 +189,14 @@ if ! command -v jqp &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.podman }}
+# podman setup
+if ! command -v podman &>/dev/null; then
+    mise use -g podman
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
