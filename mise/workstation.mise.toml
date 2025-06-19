@@ -1,2 +1,4 @@
 [tools]
+kubectl = "latest"
 uv = "latest"
+# pnpm = "latest"

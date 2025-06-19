@@ -4,15 +4,18 @@ data:
     workstation:
       install:
         starship: true
-        pnpm: true
+        kubectl: true
+        pnpm: false
         uv: true
     wsl:
       install:
         starship: true
-        pnpm: true
+        kubectl: true
+        pnpm: false
         uv: true
     devcontainer:
       install:
         starship: true
+        kubectl: false
         pnpm: false
         uv: false

@@ -47,17 +47,27 @@ eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 {{ end }}
 
+
+{{ if $install.kubectl }}
+# kubectl setup
+if ! command -v kubectl &>/dev/null; then
+    mise use -g kubectl
+fi
+source <(kubectl completion zsh)
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
-mise use -g uv
+if ! command -v uv &>/dev/null; then
+    mise use -g uv
+fi
 eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
 {{ end }}
 
 {{ if $install.pnpm }}
 # pnpm setup
-export PNPM_HOME="{{ .chezmoi.homeDir }}/.local/share/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+if ! command -v pnpm &>/dev/null; then
+    mise use -g pnpm
+fi
 {{ end }}
