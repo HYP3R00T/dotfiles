@@ -1,3 +1,4 @@
 chezmoi.devcontainer.yaml
 chezmoi.workstation.yaml
 chezmoi.wsl.yaml
+*.boltdb
