@@ -1,4 +1,5 @@
 [tools]
+starship = "latest"
 kubectl = "latest"
 terraform = "latest"
 zoxide = "latest"

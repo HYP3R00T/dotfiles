@@ -50,6 +50,10 @@ eval "$(mise activate zsh)"
 
 {{ if $install.starship }}
 # starship setup
+if ! command -v starship &>/dev/null; then
+    mise use -g starship
+    eval "$(mise activate zsh)"
+fi
 eval "$(starship init zsh)"
 {{ end }}
 
@@ -111,4 +115,16 @@ if ! command -v pnpm &>/dev/null; then
     mise use -g pnpm
     eval "$(mise activate zsh)"
 fi
+{{ end }}
+
+{{ if $install.zsh_plugin }}
+# Plugins
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+ZSH_AUTOSUGGEST_USE_ASYNC=true
+ZSH_AUTOSUGGEST_MANUAL_REBIND=true
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7f849c"
+# Autosuggestions
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Syntax highlighting (always last)
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 {{ end }}
