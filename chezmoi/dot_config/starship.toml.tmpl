@@ -1,5 +1,7 @@
-{{- $v := index (index .data.variants .data.variant) "install" }}
-{{ if $v.starship }}
+{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
+{{- $install := (index .data.variants $variant).install | default dict -}}
+
+{{- if $install.starship }}
 
 "$schema" = 'https://starship.rs/config-schema.json'
 

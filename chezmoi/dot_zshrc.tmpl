@@ -1,4 +1,5 @@
-{{- $v := index (index .data.variants .data.variant) "install" }}
+{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
+{{- $install := (index .data.variants $variant).install | default dict -}}
 
 #!/usr/bin/zsh
 
@@ -34,7 +35,7 @@ bindkey "^[[1;5C" forward-word
 bindkey "^H" backward-kill-word
 bindkey "^?" backward-delete-char
 
-{{ if $v.pnpm }}
+{{ if $install.pnpm }}
 # pnpm setup
 export PNPM_HOME="{{ .chezmoi.homeDir }}/.local/share/pnpm"
 case ":$PATH:" in

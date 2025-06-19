@@ -1,15 +1,15 @@
 data:
-  variant: workstation  # default value, can be overridden by env var (export CHEZMOI_DATA_variant=wsl)
+  # variant: workstation  # default value, can be overridden by env var (export CHEZMOI_DATA_variant=wsl)
   variants:
     workstation:
       install:
         pnpm: false
-        starship: false
+        starship: true
         fzf: false
     wsl:
       install:
         pnpm: false
-        starship: true
+        starship: false
         fzf: true
     devcontainer:
       install:
