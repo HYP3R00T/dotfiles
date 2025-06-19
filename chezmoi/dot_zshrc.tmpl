@@ -124,6 +124,14 @@ if ! command -v fastfetch &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.dive }}
+# dive setup
+if ! command -v dive &>/dev/null; then
+    mise use -g dive
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then

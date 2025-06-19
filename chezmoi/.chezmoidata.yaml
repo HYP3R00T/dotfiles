@@ -13,6 +13,7 @@ data:
         bat: true # mise
         dust: true # mise
         fastfetch: true # mise
+        dive: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -27,6 +28,7 @@ data:
         bat: true # mise
         dust: true # mise
         fastfetch: true # mise
+        dive: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -41,5 +43,6 @@ data:
         bat: true # mise
         dust: true # mise
         fastfetch: true # mise
+        dive: false # mise
         pnpm: false # mise
         uv: false # mise
