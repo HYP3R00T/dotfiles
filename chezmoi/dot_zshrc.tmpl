@@ -173,6 +173,22 @@ if ! command -v shellcheck &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.jq }}
+# jq setup
+if ! command -v jq &>/dev/null; then
+    mise use -g jq
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
+{{ if $install.jqp }}
+# jqp setup
+if ! command -v jqp &>/dev/null; then
+    mise use -g jqp
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then

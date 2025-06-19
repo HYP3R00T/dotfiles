@@ -19,6 +19,8 @@ data:
         ytdlp: true # mise
         shfmt: true # mise
         shellcheck: true # mise
+        jq: true # mise
+        jqp: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -39,6 +41,8 @@ data:
         ytdlp: true # mise
         shfmt: true # mise
         shellcheck: true # mise
+        jq: true # mise
+        jqp: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -59,5 +63,7 @@ data:
         ytdlp: false # mise
         shfmt: true # mise
         shellcheck: true # mise
+        jq: true # mise
+        jqp: true # mise
         pnpm: false # mise
         uv: false # mise
