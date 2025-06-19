@@ -4,6 +4,7 @@ data:
     workstation:
       install:
         starship: true # ansible
+        tmux: true # ansible
         kubectl: true # mise
         terraform: true # mise
         zoxide: true # mise
@@ -13,6 +14,7 @@ data:
     wsl:
       install:
         starship: true # ansible
+        tmux: true # ansible
         kubectl: true # mise
         terraform: true # mise
         zoxide: true # mise
@@ -22,6 +24,7 @@ data:
     devcontainer:
       install:
         starship: true # ansible
+        tmux: true # ansible
         kubectl: false # mise
         terraform: false # mise
         zoxide: true # mise

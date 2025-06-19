@@ -1,10 +1,7 @@
-# Prevent OSC responses from leaking into the prompt
-set -g allow-passthrough on # Switch to on
-set -g extended-keys off
+{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
+{{- $install := (index .data.variants $variant).install | default dict -}}
 
-# Use proper terminal type
-set -g default-terminal "xterm-256color"
-set -ga terminal-overrides ",xterm-256color:Tc"
+{{- if $install.tmux }}
 
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
@@ -83,3 +80,5 @@ setw -g window-status-current-style 'fg=colour12 bold'
 setw -g window-status-current-format ' #I #W #F '
 setw -g window-status-style 'fg=colour12'
 setw -g window-status-format ' #I #[fg=colour7]#W #[fg=colour1]#F '
+
+{{ end }}
