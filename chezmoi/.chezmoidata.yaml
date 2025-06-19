@@ -9,7 +9,7 @@ data:
     wsl:
       install:
         pnpm: false
-        starship: false
+        starship: true
         fzf: true
     devcontainer:
       install:

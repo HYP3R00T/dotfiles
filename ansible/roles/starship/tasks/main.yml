@@ -1,0 +1,18 @@
+- name: Ensure required dependencies are installed
+  ansible.builtin.package:
+    name: curl
+    state: present
+  become: true
+
+- name: Install Starship
+  ansible.builtin.shell:
+    cmd: |
+      curl -sS https://starship.rs/install.sh | sh -s -- -y
+    creates: /usr/local/bin/starship
+  become: true
+
+- name: Verify Starship installation
+  ansible.builtin.command:
+    cmd: /usr/local/bin/starship --version
+  register: starship_version
+  changed_when: false
