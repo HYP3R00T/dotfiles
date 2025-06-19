@@ -10,6 +10,7 @@ data:
         terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
+        bat: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -21,6 +22,7 @@ data:
         terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
+        bat: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -31,5 +33,7 @@ data:
         kubectl: false # mise
         terraform: false # mise
         zoxide: true # mise
+        fzf: true # mise
+        bat: true # mise
         pnpm: false # mise
         uv: false # mise

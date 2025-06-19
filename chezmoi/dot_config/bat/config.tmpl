@@ -1,0 +1,8 @@
+{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
+{{- $install := (index .data.variants $variant).install | default dict -}}
+
+{{- if $install.bat }}
+
+--theme="Catppuccin Mocha"
+
+{{ end }}

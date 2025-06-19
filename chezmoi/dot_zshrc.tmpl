@@ -41,6 +41,7 @@ alias py="python3"
 alias pya="source ./.venv/bin/activate"
 alias k="kubectl"
 alias tf="terraform"
+alias cat="bat"
 
 # Manage paths
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
@@ -97,6 +98,14 @@ export FZF_DEFAULT_OPTS=" \
 --color=info:10,prompt:9,pointer:13 \
 --color=marker:10,spinner:13,header:6 \
 --multi"
+{{ end }}
+
+{{ if $install.bat }}
+# bat setup
+if ! command -v bat &>/dev/null; then
+    mise use -g bat
+    eval "$(mise activate zsh)"
+fi
 {{ end }}
 
 {{ if $install.uv }}
