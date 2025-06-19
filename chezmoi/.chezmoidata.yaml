@@ -12,6 +12,7 @@ data:
         fzf: true # mise
         bat: true # mise
         dust: true # mise
+        fastfetch: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -25,6 +26,7 @@ data:
         fzf: true # mise
         bat: true # mise
         dust: true # mise
+        fastfetch: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -38,5 +40,6 @@ data:
         fzf: true # mise
         bat: true # mise
         dust: true # mise
+        fastfetch: true # mise
         pnpm: false # mise
         uv: false # mise
