@@ -16,6 +16,7 @@ data:
         dive: true # mise
         btop: true # mise
         eza: true # mise
+        ytdlp: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -33,6 +34,7 @@ data:
         dive: true # mise
         btop: true # mise
         eza: true # mise
+        ytdlp: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -50,5 +52,6 @@ data:
         dive: false # mise
         btop: true # mise
         eza: true # mise
+        ytdlp: false # mise
         pnpm: false # mise
         uv: false # mise

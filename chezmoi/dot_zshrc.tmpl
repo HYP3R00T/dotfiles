@@ -149,6 +149,14 @@ fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
 {{ end }}
 
+{{ if $install.ytdlp }}
+# yt-dlp setup
+if ! command -v yt-dlp &>/dev/null; then
+    mise use -g yt-dlp
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
