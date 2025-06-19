@@ -15,6 +15,7 @@ data:
         fastfetch: true # mise
         dive: true # mise
         btop: true # mise
+        eza: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -31,6 +32,7 @@ data:
         fastfetch: true # mise
         dive: true # mise
         btop: true # mise
+        eza: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -47,5 +49,6 @@ data:
         fastfetch: true # mise
         dive: false # mise
         btop: true # mise
+        eza: true # mise
         pnpm: false # mise
         uv: false # mise
