@@ -3,16 +3,16 @@ data:
   variants:
     workstation:
       install:
-        pnpm: false
         starship: true
-        fzf: false
+        pnpm: true
+        uv: true
     wsl:
       install:
-        pnpm: false
         starship: true
-        fzf: true
+        pnpm: true
+        uv: true
     devcontainer:
       install:
-        pnpm: true
         starship: true
-        fzf: false
+        pnpm: false
+        uv: false

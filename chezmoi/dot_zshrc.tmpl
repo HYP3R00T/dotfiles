@@ -35,6 +35,24 @@ bindkey "^[[1;5C" forward-word
 bindkey "^H" backward-kill-word
 bindkey "^?" backward-delete-char
 
+# Manage paths
+
+export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
+
+# mise setup
+eval "$(mise activate zsh)"
+
+{{ if $install.starship }}
+# starship setup
+eval "$(starship init zsh)"
+{{ end }}
+
+{{ if $install.uv }}
+# uv setup
+mise use -g uv
+eval "$(uv generate-shell-completion zsh)"
+{{ end }}
+
 {{ if $install.pnpm }}
 # pnpm setup
 export PNPM_HOME="{{ .chezmoi.homeDir }}/.local/share/pnpm"
@@ -42,9 +60,4 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-{{ end }}
-
-{{ if $install.starship }}
-# starship setup
-eval "$(starship init zsh)"
 {{ end }}
