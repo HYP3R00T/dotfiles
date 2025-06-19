@@ -157,6 +157,14 @@ if ! command -v yt-dlp &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.shfmt }}
+# shfmt setup
+if ! command -v shfmt &>/dev/null; then
+    mise use -g shfmt
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then

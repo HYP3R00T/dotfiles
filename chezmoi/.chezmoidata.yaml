@@ -17,6 +17,7 @@ data:
         btop: true # mise
         eza: true # mise
         ytdlp: true # mise
+        shfmt: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -35,6 +36,7 @@ data:
         btop: true # mise
         eza: true # mise
         ytdlp: true # mise
+        shfmt: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -53,5 +55,6 @@ data:
         btop: true # mise
         eza: true # mise
         ytdlp: false # mise
+        shfmt: true # mise
         pnpm: false # mise
         uv: false # mise
