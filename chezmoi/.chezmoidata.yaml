@@ -18,6 +18,7 @@ data:
         eza: true # mise
         ytdlp: true # mise
         shfmt: true # mise
+        shellcheck: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -37,6 +38,7 @@ data:
         eza: true # mise
         ytdlp: true # mise
         shfmt: true # mise
+        shellcheck: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -56,5 +58,6 @@ data:
         eza: true # mise
         ytdlp: false # mise
         shfmt: true # mise
+        shellcheck: true # mise
         pnpm: false # mise
         uv: false # mise

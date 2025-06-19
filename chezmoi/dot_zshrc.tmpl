@@ -165,6 +165,14 @@ if ! command -v shfmt &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.shellcheck }}
+# shellcheck setup
+if ! command -v shellcheck &>/dev/null; then
+    mise use -g shellcheck
+    eval "$(mise activate zsh)"
+fi
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
