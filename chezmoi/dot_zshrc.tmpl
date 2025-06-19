@@ -57,6 +57,7 @@ eval "$(starship init zsh)"
 # kubectl setup
 if ! command -v kubectl &>/dev/null; then
     mise use -g kubectl
+    eval "$(mise activate zsh)"
 fi
 source <(kubectl completion zsh)
 {{ end }}
@@ -65,14 +66,32 @@ source <(kubectl completion zsh)
 # zoxide setup
 if ! command -v zoxide &>/dev/null; then
     mise use -g zoxide
+    eval "$(mise activate zsh)"
 fi
 eval "$(zoxide init zsh --cmd cd)"
+{{ end }}
+
+{{ if $install.fzf }}
+# fzf setup
+if ! command -v fzf &>/dev/null; then
+    mise use -g fzf
+    eval "$(mise activate zsh)"
+fi
+source <(fzf --zsh)
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS=" \
+--color=fg:15,bg:0,hl:14 \
+--color=fg+:15,bg+:0,hl+:12 \
+--color=info:10,prompt:9,pointer:13 \
+--color=marker:10,spinner:13,header:6 \
+--multi"
 {{ end }}
 
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
     mise use -g uv
+    eval "$(mise activate zsh)"
 fi
 eval "$(uv generate-shell-completion zsh)"
 eval "$(uvx --generate-shell-completion zsh)"
@@ -82,5 +101,6 @@ eval "$(uvx --generate-shell-completion zsh)"
 # pnpm setup
 if ! command -v pnpm &>/dev/null; then
     mise use -g pnpm
+    eval "$(mise activate zsh)"
 fi
 {{ end }}

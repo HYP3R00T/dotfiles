@@ -6,6 +6,7 @@ data:
         starship: true # ansible
         kubectl: true # mise
         zoxide: true # mise
+        fzf: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -13,6 +14,7 @@ data:
         starship: true # ansible
         kubectl: true # mise
         zoxide: true # mise
+        fzf: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
