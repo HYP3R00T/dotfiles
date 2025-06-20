@@ -3,6 +3,10 @@
 
 #!/usr/bin/zsh
 
+# Load completion system
+autoload -Uz compinit
+compinit
+
 # Option configuration
 HISTSIZE=2000
 HISTFILE=~/.zsh_history
@@ -18,10 +22,6 @@ setopt HIST_FIND_NO_DUPS      # Do not display a line previously found.
 setopt BANG_HIST              # Treat the '!' character specially during expansion.
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
-
-# Load completion system
-autoload -Uz compinit
-compinit
 
 # Completion styling
 zstyle ':completion:*' menu no                 # Disable menu-based selection during tab completion.
