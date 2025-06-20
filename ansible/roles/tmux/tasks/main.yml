@@ -9,6 +9,5 @@
   ansible.builtin.package:
     name: tmux
     state: present
-  when: tmux_check.failed
+  when: tmux_check.rc != 0
   become: true
-
