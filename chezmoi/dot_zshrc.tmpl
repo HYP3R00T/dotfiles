@@ -19,6 +19,10 @@ setopt BANG_HIST              # Treat the '!' character specially during expansi
 setopt INC_APPEND_HISTORY     # Write to the history file immediately, not when the shell exits.
 setopt HIST_EXPIRE_DUPS_FIRST # Expire duplicate entries first when trimming history.
 
+# Load completion system
+autoload -Uz compinit
+compinit
+
 # Completion styling
 zstyle ':completion:*' menu no                 # Disable menu-based selection during tab completion.
 zstyle ':completion:*' accept-exact '*(N)'     # Automatically accept exact matches when completing.
