@@ -201,6 +201,15 @@ if ! command -v podman &>/dev/null; then
 fi
 {{ end }}
 
+{{ if $install.flux2 }}
+# flux2 setup
+if ! command -v flux2 &>/dev/null; then
+    mise use -g flux2
+    eval "$(mise activate zsh)"
+fi
+source <(flux completion zsh)
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then

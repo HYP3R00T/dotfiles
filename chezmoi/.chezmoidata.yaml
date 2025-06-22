@@ -22,6 +22,7 @@ data:
         jq: true # mise
         jqp: true # mise
         podman: true # mise
+        flux2: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -45,6 +46,7 @@ data:
         jq: true # mise
         jqp: true # mise
         podman: true # mise
+        flux2: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -68,5 +70,6 @@ data:
         jq: true # mise
         jqp: true # mise
         podman: true # mise
+        flux2: true # mise
         pnpm: false # mise
         uv: false # mise
