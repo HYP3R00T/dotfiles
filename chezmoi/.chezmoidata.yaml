@@ -24,6 +24,7 @@ data:
         podman: true # mise
         flux2: true # mise
         k9s: true # mise
+        vault: true # mise
         pnpm: false # mise
         uv: true # mise
     wsl:
@@ -49,6 +50,7 @@ data:
         podman: true # mise
         flux2: true # mise
         k9s: true # mise
+        vault: true # mise
         pnpm: false # mise
         uv: true # mise
     devcontainer:
@@ -74,5 +76,6 @@ data:
         podman: true # mise
         flux2: true # mise
         k9s: true # mise
+        vault: false # mise
         pnpm: false # mise
         uv: false # mise
