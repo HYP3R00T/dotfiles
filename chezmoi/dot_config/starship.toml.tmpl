@@ -9,9 +9,10 @@
 # Inserts a blank line between shell prompts
 add_newline = true
 
-# Global format for the prompt
+# Use the Catppuccin Mocha color palette
+palette = 'catppuccin_mocha'
+
 format = """
-$username\
 $hostname\
 $directory\
 $git_branch\
@@ -25,71 +26,68 @@ $docker_context\
 $terraform\
 $env_var\
 $all\
+
 $fill\
+
 $aws\
 $gcloud\
 $azure\
 $jobs\
+$container\
 $kubernetes\
 $sudo\
+
 $line_break\
 $character"""
 
-[aws]
-symbol = "  "
-format = '[$symbol($profile )(\($region\) )]($style) '
 
-[azure]
-format = '[$symbol($subscription)]($style) '
-symbol = "󰠅 "
-disabled = true
+[palettes.catppuccin_mocha]
+rosewater = "#f5e0dc"
+flamingo = "#f2cdcd"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+red = "#f38ba8"
+maroon = "#eba0ac"
+peach = "#fab387"
+yellow = "#f9e2af"
+green = "#a6e3a1"
+teal = "#94e2d5"
+sky = "#89dceb"
+sapphire = "#74c7ec"
+blue = "#89b4fa"
+lavender = "#b4befe"
+text = "#cdd6f4"
+subtext1 = "#bac2de"
+subtext0 = "#a6adc8"
+overlay2 = "#9399b2"
+overlay1 = "#7f849c"
+overlay0 = "#6c7086"
+surface2 = "#585b70"
+surface1 = "#45475a"
+surface0 = "#313244"
+base = "#1e1e2e"
+mantle = "#181825"
+crust = "#11111b"
 
-[buf]
-symbol = " "
 
-[battery]
-disabled = true
-
-[c]
-symbol = " "
-
-[conda]
-symbol = " "
+[character]
+success_symbol = '[❯](green)'
+error_symbol = '[❯](red)'
 
 [cmd_duration]
-format = "[$duration]($style) "
+format = '[$duration]($style) '
 
-[crystal]
-symbol = " "
-
-[dart]
-symbol = " "
+[container]
+format = '[$symbol $name]($style) '
+style = 'blue'
 
 [directory]
-read_only = " 󰌾"
-
-[docker_context]
-symbol = " "
-format = "[$symbol$context]($style) "
-
-[elixir]
-symbol = " "
-
-[elm]
-symbol = " "
-
-[fennel]
-symbol = " "
+read_only = ' 󰌾'
+style = 'lavender'
 
 [fill]
+disabled = false
 symbol = " "
-
-[fossil_branch]
-symbol = " "
-
-[gcloud]
-format = '[$symbol$project]($style) '
-symbol = "󱇶 "
 
 [git_branch]
 symbol = " "
@@ -112,61 +110,29 @@ staged = "+${count}"
 renamed = "»${count}"
 deleted = "✘${count}"
 
-[golang]
-symbol = " "
-
-[guix_shell]
-symbol = " "
-
-[haskell]
-symbol = " "
-
-[haxe]
-symbol = " "
-
-[hg_branch]
-symbol = " "
-
 [hostname]
-ssh_symbol = " "
-format = '[$ssh_symbol](bold blue) on [$hostname](bold red) '
-disabled = true
+ssh_only = true
+ssh_symbol = ''
+format = '[$ssh_symbol](blue) [$hostname](red)'
+disabled = false
 
-[java]
-symbol = " "
-
-[julia]
-symbol = " "
-
-[kotlin]
-symbol = " "
+[jobs]
+style = 'blue'
 
 [kubernetes]
 format = '[$symbol$context( \($namespace\))]($style) '
 symbol = "󱃾 "
 disabled = false
-
-[lua]
-symbol = " "
-
-[memory_usage]
-symbol = "󰍛 "
-
-[meson]
-symbol = "󰔷 "
-
-[nim]
-symbol = "󰆥 "
-
-[nix_shell]
-symbol = " "
+style = 'blue'
 
 [nodejs]
 symbol = " "
 format = "[$symbol($version )]($style)"
+style = "green"
 
-[ocaml]
-symbol = " "
+[os]
+disabled = true
+style = 'fg:red'
 
 [os.symbols]
 Alpaquita = " "
@@ -213,52 +179,175 @@ Windows = "󰍲 "
 symbol = "󰏗 "
 format = "[$symbol$version]($style) "
 
-[perl]
-symbol = " "
-
-[php]
-symbol = " "
-
-[pijul_channel]
-symbol = " "
-
 [python]
 symbol = " "
 format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-
-[rlang]
-symbol = "󰟔 "
-
-[ruby]
-symbol = " "
+style = "yellow"
 
 [rust]
-symbol = " "
+symbol = " "
 format = "[$symbol($version )]($style)"
-
-[scala]
-symbol = " "
+style = "red"
 
 [shell]
 bash_indicator = " "
 fish_indicator = '󰈺 '
 powershell_indicator = '_'
-unknown_indicator = 'mystery shell'
+unknown_indicator = ''
 disabled = true
 
 [sudo]
 symbol = "󰢏 "
 disabled = false
 format = "[$symbol]($style)"
-
-[swift]
-symbol = " "
+style = "red"
 
 [terraform]
 symbol = "󱁢 "
 format = "[$symbol$workspace]($style) "
 
+# -----------------------------------------
+
+[aws]
+symbol = "  "
+disabled = true
+
+[azure]
+symbol = "󰠅 "
+disabled = true
+
+[battery]
+disabled = true
+
+[c]
+disabled = true
+symbol = " "
+
+[conda]
+disabled = true
+symbol = " "
+
+[crystal]
+disabled = true
+symbol = " "
+
+[dart]
+disabled = true
+symbol = " "
+
+[docker_context]
+disabled = true
+symbol = " "
+
+[elixir]
+disabled = true
+symbol = " "
+
+[elm]
+disabled = true
+symbol = " "
+
+[fennel]
+disabled = true
+symbol = " "
+
+
+[fossil_branch]
+disabled = true
+symbol = " "
+
+[gcloud]
+disabled = true
+symbol = "󱇶 "
+
+[golang]
+disabled = true
+symbol = " "
+
+[guix_shell]
+disabled = true
+symbol = " "
+
+[haskell]
+disabled = true
+symbol = " "
+
+[haxe]
+disabled = true
+symbol = " "
+
+[hg_branch]
+disabled = true
+symbol = " "
+
+[java]
+disabled = true
+symbol = " "
+
+[julia]
+disabled = true
+symbol = " "
+
+[kotlin]
+disabled = true
+symbol = " "
+
+[lua]
+disabled = true
+symbol = " "
+
+[memory_usage]
+disabled = true
+symbol = "󰍛 "
+
+[meson]
+disabled = true
+symbol = "󰔷 "
+
+[nim]
+disabled = true
+symbol = "󰆥 "
+
+[nix_shell]
+disabled = true
+symbol = " "
+
+[ocaml]
+disabled = true
+symbol = " "
+
+
+[perl]
+disabled = true
+symbol = " "
+
+[php]
+disabled = true
+symbol = " "
+
+[pijul_channel]
+disabled = true
+symbol = " "
+
+[rlang]
+disabled = true
+symbol = "󰟔 "
+
+[ruby]
+disabled = true
+symbol = " "
+
+[scala]
+disabled = true
+symbol = " "
+
+[swift]
+disabled = true
+symbol = " "
+
 [zig]
+disabled = true
 symbol = " "
+
 
 {{ end }}
