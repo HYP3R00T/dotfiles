@@ -228,6 +228,15 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C vault vault
 {{ end }}
 
+{{ if $install.direnv }}
+# direnv setup
+if ! command -v direnv &>/dev/null; then
+    mise use -g direnv
+    eval "$(mise activate zsh)"
+fi
+eval "$(direnv hook zsh)"
+{{ end }}
+
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
