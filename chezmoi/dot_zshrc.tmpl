@@ -203,11 +203,19 @@ fi
 
 {{ if $install.flux2 }}
 # flux2 setup
-if ! command -v flux2 &>/dev/null; then
+if ! command -v flux &>/dev/null; then
     mise use -g flux2
     eval "$(mise activate zsh)"
 fi
 source <(flux completion zsh)
+{{ end }}
+
+{{ if $install.k9s }}
+# k9s setup
+if ! command -v k9s &>/dev/null; then
+    mise use -g k9s
+    eval "$(mise activate zsh)"
+fi
 {{ end }}
 
 {{ if $install.uv }}
