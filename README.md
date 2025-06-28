@@ -8,7 +8,7 @@ A cross-platform dotfiles and system bootstrapping toolkit powered by **Ansible*
 
 This repo automates the entire environment setup process:
 
-- 🧰 Installs core packages using Ansible
+- 🧰 Installs core packages using [Ansible](https://www.ansible.com/)
 - 🧠 Manages language tools and CLIs with [`mise`](https://mise.jdx.dev)
 - 🎯 Applies dotfiles declaratively using [`chezmoi`](https://www.chezmoi.io)
 - 🧵 Everything driven by a single orchestrator script: `setup.sh`
@@ -78,13 +78,6 @@ All tools are auto-installed if missing — no manual setup required.
 - 🔁 **Reproducible**: Consistent results across reboots and re-clones
 - 📦 **Modular**: Easily extend with new variants or roles
 - ⚡ **Fast**: Typically runs in under a minute
-
-## 📌 TODO / Roadmap
-
-- [ ] Add CI for dry-run testing of Ansible playbooks
-- [ ] Add macOS support
-- [ ] Optional Tailscale and Cloudflared modules
-- [ ] Improve conditional logic in chezmoi templates
 
 ## 🤝 License
 
