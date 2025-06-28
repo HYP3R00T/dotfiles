@@ -1,6 +1,6 @@
 # 🧪 dotfiles
 
-A cross-platform dotfiles and system bootstrapping toolkit powered by **Ansible**, **mise-en-place**, and **chezmoi**. Designed to reproducibly configure environments across **bare metal**, **WSL**, and **DevContainers** — all from a single declarative codebase.
+A cross-platform dotfiles and system bootstrapping toolkit powered by **Ansible**, **mise-en-place**, and **chezmoi**. Designed to reproducibly configure environments across **bare metal**, **WSL**, and **DevContainers** - all from a single declarative codebase.
 
 > 🚀 Zero-to-productive in minutes with one command.
 
@@ -55,8 +55,8 @@ bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup
 
 The script performs:
 
-1. **Validation** — ensures a proper clone or re-clones it
-2. **Orchestration** — runs:
+1. **Validation** - ensures a proper clone or re-clones it
+2. **Orchestration** - runs:
    - `ansible.sh` to install system packages (if applicable)
    - `mise.sh` to install tools from `.mise.toml`
    - `chezmoi.sh` to apply variant-specific dotfiles
@@ -70,7 +70,7 @@ The script performs:
 | chezmoi   | Declarative dotfile management     |
 | Bash      | Variant-aware orchestration        |
 
-All tools are auto-installed if missing — no manual setup required.
+All tools are auto-installed if missing - no manual setup required.
 
 ## 💡 Design Philosophy
 
