@@ -1,8 +1,8 @@
 - name: Common setup for all variants
-  hosts: all                  # Use 'all' so it works for any inventory
-  gather_facts: yes           # Usually useful unless you have a reason to skip
+  hosts: all # Use 'all' so it works for any inventory
+  gather_facts: true # Usually useful unless you have a reason to skip
   vars_files:
-    - ../vars/common.yml      # If you have vars common to all variants
+    - ../vars/common.yml # If you have vars common to all variants
   roles:
     - git
     - tmux

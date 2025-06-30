@@ -1,5 +1,4 @@
 - import_playbook: common.yml
-
 # - name: Variant specific setup
 #   hosts: all
 #   gather_facts: yes
