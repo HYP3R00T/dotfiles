@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VARIANT="${1:-workstation}"
+VARIANT="${1:-devcontainer}"
 REPO_URL="https://github.com/HYP3R00T/dotfiles"
 
 # Where this script lives
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # If we're not in a real clone (no .git, or missing scripts/ or missing the variant script), clone
-if [[ ! -d "$SCRIPT_DIR/.git" ]] \
-   || [[ ! -d "$SCRIPT_DIR/scripts" ]]; then
+if [[ ! -d "$SCRIPT_DIR/.git" ]] ||
+  [[ ! -d "$SCRIPT_DIR/scripts" ]]; then
 
   echo "📦 Not a full clone or missing files; cloning dotfiles repo into temp dir..."
   TMP_DIR="$(mktemp -d)"
@@ -29,24 +29,24 @@ source "$SCRIPT_DIR/scripts/chezmoi.sh"
 
 main() {
   case "$VARIANT" in
-    workstation)
-      handle_ansible "$VARIANT";
-      handle_mise "$VARIANT";
-      handle_chezmoi "$VARIANT";
-      ;;
-    wsl)
-      handle_ansible "$VARIANT";
-      handle_mise "$VARIANT";
-      handle_chezmoi "$VARIANT";
-      ;;
-    devcontainer)
-      handle_mise "$VARIANT";
-      handle_chezmoi "$VARIANT";
-      ;;
-    *)
-      echo "❌ Unknown variant: $VARIANT"
-      exit 1
-      ;;
+  workstation)
+    handle_ansible "$VARIANT"
+    handle_mise "$VARIANT"
+    handle_chezmoi "$VARIANT"
+    ;;
+  wsl)
+    handle_ansible "$VARIANT"
+    handle_mise "$VARIANT"
+    handle_chezmoi "$VARIANT"
+    ;;
+  devcontainer)
+    handle_mise "$VARIANT"
+    handle_chezmoi "$VARIANT"
+    ;;
+  *)
+    echo "❌ Unknown variant: $VARIANT"
+    exit 1
+    ;;
   esac
 }
 

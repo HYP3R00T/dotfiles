@@ -43,14 +43,14 @@ Each environment has a tailored setup via separate playbooks, mise configs, and 
 Run the setup script directly for your target environment:
 
 ```bash
-# For a workstation (default)
+# For DevContainers (default)
 bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh)
 
 # For WSL
 bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) wsl
 
-# For DevContainers
-bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) devcontainer
+# For a workstation
+bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) workstation
 ```
 
 The script performs:
