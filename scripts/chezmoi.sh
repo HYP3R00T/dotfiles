@@ -2,7 +2,7 @@
 set -euo pipefail
 
 handle_chezmoi() {
-  local variant="${1:-workstation}"
+  local variant="${1:-devcontainer}"
 
   # Determine root directory of the repo (one level above the script directory)
   local root_dir

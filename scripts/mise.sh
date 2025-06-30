@@ -3,7 +3,7 @@ set -euo pipefail
 
 handle_mise() {
   set -euo pipefail
-  local variant="${1:-workstation}"
+  local variant="${1:-devcontainer}"
 
   # Compute ROOT_DIR dynamically inside function
   local root_dir
