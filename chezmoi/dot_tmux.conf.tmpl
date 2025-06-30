@@ -3,6 +3,8 @@
 
 {{- if $install.tmux }}
 
+
+
 # Remap prefix from 'C-b' to 'C-a'
 unbind C-b
 set-option -g prefix C-a
@@ -84,29 +86,29 @@ setw -g monitor-activity off
 set -g bell-action none
 
 # Clock mode
-setw -g clock-mode-colour '#938aa9'  # Mauve (hex for colour141)
+setw -g clock-mode-colour '#938aa9'
 
 # Copy mode style — Mauve fg on Surface1 bg
 setw -g mode-style 'fg=#c6a0f6 bg=#1e1e2e bold'
 
 # Pane borders
-set -g pane-border-style 'fg=#302d41'         # Surface0
-set -g pane-active-border-style 'fg=#7f75d1'  # Lavender
+set -g pane-border-style 'fg=#302d41'
+set -g pane-active-border-style 'fg=#7f75d1'
 
 # Status bar
 unbind b
 bind b set-option -g status
 set -g status-position bottom
 set -g status-justify left
-set -g status-style 'fg=#cdd6f4 bg=#1e1e2e'         # Overlay0 on Surface0
-set -g status-left '#[fg=#89b4fa]#S #[default]'       # Teal session name
-set -g status-right '#[fg=#7f75d1] %Y-%m-%d %H:%M '    # Lavender timestamp
+set -g status-style 'fg=#cdd6f4 bg=#1e1e2e'
+set -g status-left '#[fg=#89b4fa]#S #[default]'
+set -g status-right ''
 set -g status-right-length 50
 set -g status-left-length 20
 
-setw -g window-status-current-style 'fg=#f9e2af bold'  # Yellow-ish current window
+setw -g window-status-current-style 'fg=#f9e2af bold'
 setw -g window-status-current-format ' #I #[fg=#f9e2af]#W #[fg=#f38ba8]#F '
-setw -g window-status-style 'fg=#cdd6f4'               # Overlay0
+setw -g window-status-style 'fg=#cdd6f4'
 setw -g window-status-format ' #I #[fg=#cdd6f4]#W #[fg=#f38ba8]#F '
 
 {{ end }}
