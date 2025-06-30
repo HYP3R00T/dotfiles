@@ -16,25 +16,25 @@ setup_ansible() {
   DISTRO=$(detect_distro)
 
   case "$DISTRO" in
-    ubuntu|debian)
-      sudo apt-get update -y
-      sudo apt-get install -y ansible
-      ;;
-    fedora)
-      sudo dnf install -y ansible
-      ;;
-    arch)
-      sudo pacman -Sy --noconfirm ansible
-      ;;
-    alpine)
-      echo "⚠️ Alpine users must enable the community repository in /etc/apk/repositories"
-      sudo apk update
-      sudo apk add --no-cache ansible
-      ;;
-    *)
-      echo "❌ Unsupported distro: $DISTRO"
-      exit 1
-      ;;
+  ubuntu | debian)
+    sudo apt-get update -y
+    sudo apt-get install -y ansible
+    ;;
+  fedora)
+    sudo dnf install -y ansible
+    ;;
+  arch)
+    sudo pacman -Sy --noconfirm ansible
+    ;;
+  alpine)
+    echo "⚠️ Alpine users must enable the community repository in /etc/apk/repositories"
+    sudo apk update
+    sudo apk add --no-cache ansible
+    ;;
+  *)
+    echo "❌ Unsupported distro: $DISTRO"
+    exit 1
+    ;;
   esac
 
   echo "✅ Ansible installed: $(ansible --version | head -n 1)"
