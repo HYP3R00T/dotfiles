@@ -59,7 +59,7 @@ data:
         uv: true # mise
     devcontainer:
       install:
-        starship: true # mise
+        starship: false # mise
         tmux: true # ansible
         zsh_plugin: false # ansible
         kubectl: false # mise
@@ -67,21 +67,21 @@ data:
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
-        dust: true # mise
-        fastfetch: true # mise
+        dust: false # mise
+        fastfetch: false # mise
         dive: false # mise
-        btop: true # mise
+        btop: false # mise
         eza: true # mise
         ytdlp: false # mise
         shfmt: true # mise
         shellcheck: true # mise
-        jq: true # mise
-        jqp: true # mise
-        podman: true # mise
-        flux2: true # mise
-        k9s: true # mise
+        jq: false # mise
+        jqp: false # mise
+        podman: false # mise
+        flux2: false # mise
+        k9s: false # mise
         vault: false # mise
-        direnv: false # mise
+        direnv: true # mise
         lazydocker: false # mise
         pnpm: false # mise
         uv: false # mise
