@@ -56,7 +56,7 @@ eval "$(mise activate zsh)"
 {{ if $install.starship }}
 # starship setup
 if ! command -v starship &>/dev/null; then
-    mise use -g starship
+    mise use -g starship@latest
     eval "$(mise activate zsh)"
 fi
 eval "$(starship init zsh)"
@@ -65,7 +65,7 @@ eval "$(starship init zsh)"
 {{ if $install.kubectl }}
 # kubectl setup
 if ! command -v kubectl &>/dev/null; then
-    mise use -g kubectl
+    mise use -g kubectl@latest
     eval "$(mise activate zsh)"
 fi
 source <(kubectl completion zsh)
@@ -74,7 +74,7 @@ source <(kubectl completion zsh)
 {{ if $install.terraform }}
 # terraform setup
 if ! command -v terraform &>/dev/null; then
-    mise use -g terraform
+    mise use -g terraform@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -82,7 +82,7 @@ fi
 {{ if $install.zoxide }}
 # zoxide setup
 if ! command -v zoxide &>/dev/null; then
-    mise use -g zoxide
+    mise use -g zoxide@latest
     eval "$(mise activate zsh)"
 fi
 eval "$(zoxide init zsh --cmd cd)"
@@ -91,7 +91,7 @@ eval "$(zoxide init zsh --cmd cd)"
 {{ if $install.fzf }}
 # fzf setup
 if ! command -v fzf &>/dev/null; then
-    mise use -g fzf
+    mise use -g fzf@latest
     eval "$(mise activate zsh)"
 fi
 source <(fzf --zsh)
@@ -107,7 +107,7 @@ export FZF_DEFAULT_OPTS=" \
 {{ if $install.bat }}
 # bat setup
 if ! command -v bat &>/dev/null; then
-    mise use -g bat
+    mise use -g bat@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -115,7 +115,7 @@ fi
 {{ if $install.dust }}
 # dust setup
 if ! command -v dust &>/dev/null; then
-    mise use -g dust
+    mise use -g dust@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -123,7 +123,7 @@ fi
 {{ if $install.fastfetch }}
 # fastfetch setup
 if ! command -v fastfetch &>/dev/null; then
-    mise use -g fastfetch
+    mise use -g fastfetch@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -131,7 +131,7 @@ fi
 {{ if $install.dive }}
 # dive setup
 if ! command -v dive &>/dev/null; then
-    mise use -g dive
+    mise use -g dive@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -139,7 +139,7 @@ fi
 {{ if $install.btop }}
 # btop setup
 if ! command -v btop &>/dev/null; then
-    mise use -g btop
+    mise use -g btop@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -147,7 +147,7 @@ fi
 {{ if $install.eza }}
 # eza setup
 if ! command -v eza &>/dev/null; then
-    mise use -g eza
+    mise use -g eza@latest
     eval "$(mise activate zsh)"
 fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
@@ -156,7 +156,7 @@ alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
 {{ if $install.ytdlp }}
 # yt-dlp setup
 if ! command -v yt-dlp &>/dev/null; then
-    mise use -g yt-dlp
+    mise use -g yt@latest-dlp
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -164,7 +164,7 @@ fi
 {{ if $install.shfmt }}
 # shfmt setup
 if ! command -v shfmt &>/dev/null; then
-    mise use -g shfmt
+    mise use -g shfmt@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -172,7 +172,7 @@ fi
 {{ if $install.shellcheck }}
 # shellcheck setup
 if ! command -v shellcheck &>/dev/null; then
-    mise use -g shellcheck
+    mise use -g shellcheck@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -180,7 +180,7 @@ fi
 {{ if $install.jq }}
 # jq setup
 if ! command -v jq &>/dev/null; then
-    mise use -g jq
+    mise use -g jq@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -188,7 +188,7 @@ fi
 {{ if $install.jqp }}
 # jqp setup
 if ! command -v jqp &>/dev/null; then
-    mise use -g jqp
+    mise use -g jqp@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -196,7 +196,7 @@ fi
 {{ if $install.podman }}
 # podman setup
 if ! command -v podman &>/dev/null; then
-    mise use -g podman
+    mise use -g podman@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -204,7 +204,7 @@ fi
 {{ if $install.flux2 }}
 # flux2 setup
 if ! command -v flux &>/dev/null; then
-    mise use -g flux2
+    mise use -g flux2@latest
     eval "$(mise activate zsh)"
 fi
 source <(flux completion zsh)
@@ -213,7 +213,7 @@ source <(flux completion zsh)
 {{ if $install.k9s }}
 # k9s setup
 if ! command -v k9s &>/dev/null; then
-    mise use -g k9s
+    mise use -g k9s@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
@@ -221,7 +221,7 @@ fi
 {{ if $install.vault }}
 # vault setup
 if ! command -v vault &>/dev/null; then
-    mise use -g vault
+    mise use -g vault@latest
     eval "$(mise activate zsh)"
 fi
 autoload -U +X bashcompinit && bashcompinit
@@ -231,7 +231,7 @@ complete -o nospace -C vault vault
 {{ if $install.direnv }}
 # direnv setup
 if ! command -v direnv &>/dev/null; then
-    mise use -g direnv
+    mise use -g direnv@latest
     eval "$(mise activate zsh)"
 fi
 eval "$(direnv hook zsh)"
@@ -240,7 +240,7 @@ eval "$(direnv hook zsh)"
 {{ if $install.lazydocker }}
 # lazydocker setup
 if ! command -v lazydocker &>/dev/null; then
-    mise use -g lazydocker
+    mise use -g lazydocker@latest
     eval "$(mise activate zsh)"
 fi
 alias ld=lazydocker
@@ -249,7 +249,7 @@ alias ld=lazydocker
 {{ if $install.uv }}
 # uv setup
 if ! command -v uv &>/dev/null; then
-    mise use -g uv
+    mise use -g uv@latest
     eval "$(mise activate zsh)"
 fi
 eval "$(uv generate-shell-completion zsh)"
@@ -259,7 +259,7 @@ eval "$(uvx --generate-shell-completion zsh)"
 {{ if $install.pnpm }}
 # pnpm setup
 if ! command -v pnpm &>/dev/null; then
-    mise use -g pnpm
+    mise use -g pnpm@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
