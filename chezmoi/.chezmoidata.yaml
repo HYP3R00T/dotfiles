@@ -59,7 +59,7 @@ data:
         uv: true # mise
     devcontainer:
       install:
-        starship: false # mise
+        starship: true # mise
         tmux: true # ansible
         zsh_plugin: false # ansible
         kubectl: false # mise
