@@ -1,0 +1,15 @@
+{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
+{{- $install := (index .data.variants $variant).install | default dict -}}
+
+{{- if $install.k9s }}
+aliases:
+  dp: deployments
+  sec: v1/secrets
+  jo: jobs
+  cr: clusterroles
+  crb: clusterrolebindings
+  ro: roles
+  rb: rolebindings
+  np: networkpolicies
+
+{{ end }}
