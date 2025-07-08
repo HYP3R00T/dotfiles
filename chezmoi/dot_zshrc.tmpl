@@ -109,6 +109,7 @@ if ! command -v bat &>/dev/null; then
     mise use -g bat@latest
     eval "$(mise activate zsh)"
 fi
+bat cache --build
 alias cat="bat"
 {{ end }}
 
