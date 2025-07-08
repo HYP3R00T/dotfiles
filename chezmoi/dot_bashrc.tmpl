@@ -27,9 +27,6 @@ bind '"\C-?": backward-delete-char'
 alias ls='ls --color=auto'
 alias py='python3'
 alias pya='source ./.venv/bin/activate'
-alias k='kubectl'
-alias tf='terraform'
-alias cat='bat'
 
 # Paths
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
@@ -52,6 +49,7 @@ if ! command -v kubectl &>/dev/null; then
     eval "$(mise activate bash)"
 fi
 source <(kubectl completion bash)
+alias k="kubectl"
 {{ end }}
 
 {{ if $install.terraform }}
@@ -59,6 +57,7 @@ if ! command -v terraform &>/dev/null; then
     mise use -g terraform@latest
     eval "$(mise activate bash)"
 fi
+alias tf="terraform"
 {{ end }}
 
 {{ if $install.zoxide }}
@@ -89,6 +88,8 @@ if ! command -v bat &>/dev/null; then
     mise use -g bat@latest
     eval "$(mise activate bash)"
 fi
+bat cache --build
+alias cat="bat"
 {{ end }}
 
 {{ if $install.dust }}
@@ -125,6 +126,7 @@ if ! command -v eza &>/dev/null; then
     eval "$(mise activate bash)"
 fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
+alias tree="eza --tree"
 {{ end }}
 
 {{ if $install.ytdlp }}
@@ -223,4 +225,3 @@ if ! command -v pnpm &>/dev/null; then
     eval "$(mise activate bash)"
 fi
 {{ end }}
-
