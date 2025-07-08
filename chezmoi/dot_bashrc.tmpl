@@ -87,8 +87,8 @@ export FZF_DEFAULT_OPTS=" \
 if ! command -v bat &>/dev/null; then
     mise use -g bat@latest
     eval "$(mise activate bash)"
+    bat cache --build
 fi
-bat cache --build
 alias cat="bat"
 {{ end }}
 
