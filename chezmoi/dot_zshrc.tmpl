@@ -152,7 +152,7 @@ if ! command -v eza &>/dev/null; then
     eval "$(mise activate zsh)"
 fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
-alias tree="eza --tree"
+alias tree="eza --tree --icons"
 {{ end }}
 
 {{ if $install.ytdlp }}
@@ -237,6 +237,14 @@ if ! command -v direnv &>/dev/null; then
     eval "$(mise activate zsh)"
 fi
 eval "$(direnv hook zsh)"
+{{ end }}
+
+{{ if $install.ripgrep }}
+# ripgrep setup
+if ! command -v rg &>/dev/null; then
+    mise use -g ripgrep@latest
+    eval "$(mise activate zsh)"
+fi
 {{ end }}
 
 {{ if $install.lazydocker }}

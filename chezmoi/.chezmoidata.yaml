@@ -26,6 +26,7 @@ data:
         k9s: true # mise
         vault: true # mise
         direnv: true # mise
+        ripgrep: true # mise
         lazydocker: true # mise
         pnpm: false # mise
         uv: true # mise
@@ -54,6 +55,7 @@ data:
         k9s: true # mise
         vault: true # mise
         direnv: true # mise
+        ripgrep: true # mise
         lazydocker: true # mise
         pnpm: false # mise
         uv: true # mise
@@ -82,6 +84,7 @@ data:
         k9s: false # mise
         vault: false # mise
         direnv: true # mise
+        ripgrep: true # mise
         lazydocker: false # mise
         pnpm: false # mise
         uv: false # mise
