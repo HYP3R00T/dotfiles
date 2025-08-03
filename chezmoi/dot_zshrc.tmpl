@@ -158,7 +158,7 @@ alias tree="eza --tree --icons"
 {{ if $install.ytdlp }}
 # yt-dlp setup
 if ! command -v yt-dlp &>/dev/null; then
-    mise use -g yt@latest-dlp
+    mise use -g yt-dlp@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
