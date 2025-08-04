@@ -27,12 +27,6 @@ bind '"\C-?": backward-delete-char'
 alias ls='ls --color=auto'
 alias py='python3'
 alias pya='source ./.venv/bin/activate'
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 59d1648 (feat: add ripgrep installation and configuration across various setups)
 
 # Paths
 export PATH="$HOME/.local/share/mise/shims:$HOME/.local/bin:$PATH"
@@ -55,11 +49,7 @@ if ! command -v kubectl &>/dev/null; then
     eval "$(mise activate bash)"
 fi
 source <(kubectl completion bash)
-<<<<<<< HEAD
-alias k="kubectl"
-=======
 alias k='kubectl'
->>>>>>> 59d1648 (feat: add ripgrep installation and configuration across various setups)
 {{ end }}
 
 {{ if $install.terraform }}
@@ -67,11 +57,7 @@ if ! command -v terraform &>/dev/null; then
     mise use -g terraform@latest
     eval "$(mise activate bash)"
 fi
-<<<<<<< HEAD
-alias tf="terraform"
-=======
 alias tf='terraform'
->>>>>>> 59d1648 (feat: add ripgrep installation and configuration across various setups)
 {{ end }}
 
 {{ if $install.zoxide }}
