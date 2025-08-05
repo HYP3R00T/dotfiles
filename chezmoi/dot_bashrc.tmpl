@@ -89,11 +89,7 @@ if ! command -v bat &>/dev/null; then
     eval "$(mise activate bash)"
     bat cache --build
 fi
-<<<<<<< HEAD
 alias cat="bat"
-=======
-alias cat='bat'
->>>>>>> 59d1648 (feat: add ripgrep installation and configuration across various setups)
 {{ end }}
 
 {{ if $install.dust }}
@@ -130,11 +126,7 @@ if ! command -v eza &>/dev/null; then
     eval "$(mise activate bash)"
 fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
-<<<<<<< HEAD
-alias tree="eza --tree"
-=======
 alias tree="eza --tree --icons"
->>>>>>> 59d1648 (feat: add ripgrep installation and configuration across various setups)
 {{ end }}
 
 {{ if $install.ytdlp }}
