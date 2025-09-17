@@ -28,8 +28,8 @@ data:
         direnv: true # mise
         ripgrep: true # mise
         lazydocker: true # mise
-        pnpm: false # mise
         uv: true # mise
+        pnpm: false # mise
     wsl:
       install:
         starship: true # ansible
@@ -45,20 +45,20 @@ data:
         dive: true # mise
         btop: true # mise
         eza: true # mise
-        ytdlp: true # mise
+        ytdlp: false # mise
         shfmt: true # mise
         shellcheck: true # mise
         jq: true # mise
         jqp: true # mise
-        podman: true # mise
+        podman: false # mise
         flux2: true # mise
         k9s: true # mise
         vault: true # mise
         direnv: true # mise
         ripgrep: true # mise
         lazydocker: true # mise
-        pnpm: false # mise
         uv: true # mise
+        pnpm: false # mise
     devcontainer:
       install:
         starship: true # mise
@@ -86,5 +86,5 @@ data:
         direnv: true # mise
         ripgrep: true # mise
         lazydocker: false # mise
-        pnpm: false # mise
         uv: false # mise
+        pnpm: false # mise
