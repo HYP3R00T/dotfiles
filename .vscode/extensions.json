@@ -1,6 +1,8 @@
 {
     "recommendations": [
         "timonwong.shellcheck",
-        "mkhl.shfmt"
+        "mkhl.shfmt",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml"
     ]
 }
