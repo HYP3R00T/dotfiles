@@ -1,7 +1,7 @@
 [tools]
 starship = "latest"
 # kubectl = "latest"
-# terraform = "latest"
+terraform = "latest"
 zoxide = "latest"
 fzf = "latest"
 bat = "latest"

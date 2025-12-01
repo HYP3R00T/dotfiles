@@ -65,7 +65,7 @@ data:
         tmux: true # ansible
         zsh_plugin: false # ansible
         kubectl: false # mise
-        terraform: false # mise
+        terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
