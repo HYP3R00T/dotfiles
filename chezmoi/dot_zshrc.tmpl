@@ -152,7 +152,7 @@ if ! command -v eza &>/dev/null; then
     eval "$(mise activate zsh)"
 fi
 alias ls="eza -al --icons --group-directories-first --git --time-style=relative"
-alias tree="eza --tree --icons"
+alias tree="eza --tree --icons --git-ignore -a"
 {{ end }}
 
 {{ if $install.ytdlp }}
