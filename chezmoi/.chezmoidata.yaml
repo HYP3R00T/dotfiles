@@ -64,7 +64,7 @@ data:
         starship: true # mise
         tmux: true # ansible
         zsh_plugin: false # ansible
-        kubectl: false # mise
+        kubectl: true # mise
         terraform: true # mise
         zoxide: true # mise
         fzf: true # mise
@@ -81,7 +81,7 @@ data:
         jqp: false # mise
         podman: false # mise
         flux2: false # mise
-        k9s: false # mise
+        k9s: true # mise
         vault: false # mise
         direnv: true # mise
         ripgrep: true # mise
