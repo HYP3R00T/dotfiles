@@ -80,7 +80,7 @@ data:
         jq: false # mise
         jqp: false # mise
         podman: false # mise
-        flux2: false # mise
+        flux2: true # mise
         k9s: true # mise
         vault: false # mise
         direnv: true # mise
