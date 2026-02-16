@@ -36,7 +36,7 @@ eval "$(mise activate bash)"
 
 {{ if $install.starship }}
 # starship setup
-if ! command -v starship &>/dev/null; then
+if ! mise which starship &>/dev/null; then
     mise use -g starship@latest
     eval "$(mise activate bash)"
 fi
@@ -44,7 +44,7 @@ eval "$(starship init bash)"
 {{ end }}
 
 {{ if $install.kubectl }}
-if ! command -v kubectl &>/dev/null; then
+if ! mise which kubectl &>/dev/null; then
     mise use -g kubectl@latest
     eval "$(mise activate bash)"
 fi
@@ -53,7 +53,7 @@ alias k='kubectl'
 {{ end }}
 
 {{ if $install.terraform }}
-if ! command -v terraform &>/dev/null; then
+if ! mise which terraform &>/dev/null; then
     mise use -g terraform@latest
     eval "$(mise activate bash)"
 fi
@@ -61,7 +61,7 @@ alias tf='terraform'
 {{ end }}
 
 {{ if $install.zoxide }}
-if ! command -v zoxide &>/dev/null; then
+if ! mise which zoxide &>/dev/null; then
     mise use -g zoxide@latest
     eval "$(mise activate bash)"
 fi
@@ -69,7 +69,7 @@ eval "$(zoxide init bash --cmd cd)"
 {{ end }}
 
 {{ if $install.fzf }}
-if ! command -v fzf &>/dev/null; then
+if ! mise which fzf &>/dev/null; then
     mise use -g fzf@latest
     eval "$(mise activate bash)"
 fi
@@ -84,7 +84,7 @@ export FZF_DEFAULT_OPTS=" \
 {{ end }}
 
 {{ if $install.bat }}
-if ! command -v bat &>/dev/null; then
+if ! mise which bat &>/dev/null; then
     mise use -g bat@latest
     eval "$(mise activate bash)"
     bat cache --build
@@ -93,35 +93,35 @@ alias cat="bat"
 {{ end }}
 
 {{ if $install.dust }}
-if ! command -v dust &>/dev/null; then
+if ! mise which dust &>/dev/null; then
     mise use -g dust@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.fastfetch }}
-if ! command -v fastfetch &>/dev/null; then
+if ! mise which fastfetch &>/dev/null; then
     mise use -g fastfetch@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.dive }}
-if ! command -v dive &>/dev/null; then
+if ! mise which dive &>/dev/null; then
     mise use -g dive@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.btop }}
-if ! command -v btop &>/dev/null; then
+if ! mise which btop &>/dev/null; then
     mise use -g btop@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.eza }}
-if ! command -v eza &>/dev/null; then
+if ! mise which eza &>/dev/null; then
     mise use -g eza@latest
     eval "$(mise activate bash)"
 fi
@@ -130,49 +130,49 @@ alias tree="eza --tree --icons --git-ignore -a"
 {{ end }}
 
 {{ if $install.ytdlp }}
-if ! command -v yt-dlp &>/dev/null; then
+if ! mise which yt-dlp &>/dev/null; then
     mise use -g yt@latest-dlp
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.shfmt }}
-if ! command -v shfmt &>/dev/null; then
+if ! mise which shfmt &>/dev/null; then
     mise use -g shfmt@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.shellcheck }}
-if ! command -v shellcheck &>/dev/null; then
+if ! mise which shellcheck &>/dev/null; then
     mise use -g shellcheck@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.jq }}
-if ! command -v jq &>/dev/null; then
+if ! mise which jq &>/dev/null; then
     mise use -g jq@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.jqp }}
-if ! command -v jqp &>/dev/null; then
+if ! mise which jqp &>/dev/null; then
     mise use -g jqp@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.podman }}
-if ! command -v podman &>/dev/null; then
+if ! mise which podman &>/dev/null; then
     mise use -g podman@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.flux2 }}
-if ! command -v flux &>/dev/null; then
+if ! mise which flux &>/dev/null; then
     mise use -g flux2@latest
     eval "$(mise activate bash)"
 fi
@@ -180,14 +180,14 @@ source <(flux completion bash)
 {{ end }}
 
 {{ if $install.k9s }}
-if ! command -v k9s &>/dev/null; then
+if ! mise which k9s &>/dev/null; then
     mise use -g k9s@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.vault }}
-if ! command -v vault &>/dev/null; then
+if ! mise which vault &>/dev/null; then
     mise use -g vault@latest
     eval "$(mise activate bash)"
 fi
@@ -195,7 +195,7 @@ complete -o nospace -C vault vault
 {{ end }}
 
 {{ if $install.direnv }}
-if ! command -v direnv &>/dev/null; then
+if ! mise which direnv &>/dev/null; then
     mise use -g direnv@latest
     eval "$(mise activate bash)"
 fi
@@ -203,14 +203,14 @@ eval "$(direnv hook bash)"
 {{ end }}
 
 {{ if $install.ripgrep }}
-if ! command -v rg &>/dev/null; then
+if ! mise which rg &>/dev/null; then
     mise use -g ripgrep@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}
 
 {{ if $install.lazydocker }}
-if ! command -v lazydocker &>/dev/null; then
+if ! mise which lazydocker &>/dev/null; then
     mise use -g lazydocker@latest
     eval "$(mise activate bash)"
 fi
@@ -218,7 +218,7 @@ alias ld=lazydocker
 {{ end }}
 
 {{ if $install.uv }}
-if ! command -v uv &>/dev/null; then
+if ! mise which uv &>/dev/null; then
     mise use -g uv@latest
     eval "$(mise activate bash)"
 fi
@@ -227,7 +227,7 @@ eval "$(uvx --generate-shell-completion bash)"
 {{ end }}
 
 {{ if $install.pnpm }}
-if ! command -v pnpm &>/dev/null; then
+if ! mise which pnpm &>/dev/null; then
     mise use -g pnpm@latest
     eval "$(mise activate bash)"
 fi
