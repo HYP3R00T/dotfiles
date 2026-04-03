@@ -3,7 +3,7 @@ site_name = "dotfiles"
 site_description = ""
 repo_name = "hyp3r00t/dotfiles"
 repo_url = "https://github.com/hyp3r00t/dotfiles"
-nav = [{ Home = "index.md" }]
+nav = [{ Home = "index.md" }, { Install = "install.md" }]
 
 [project.theme]
 language = "en"
