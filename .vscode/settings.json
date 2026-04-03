@@ -1,4 +1,5 @@
 {
+  "explorer.excludeGitIgnore": true,
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
   },
