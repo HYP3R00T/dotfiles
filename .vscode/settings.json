@@ -2,8 +2,8 @@
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
   },
-  "shellcheck.executablePath": "shellcheck",
   "shellcheck.ignorePatterns": {
     "**/.shellcheckrc": true
-  }
+  },
+  "shfmt.executablePath": "/home/vscode/.local/share/mise/shims/shfmt"
 }
