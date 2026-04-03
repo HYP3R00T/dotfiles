@@ -5,10 +5,25 @@
   become: true
 
 - name: Install Starship
-  ansible.builtin.shell:
-    cmd: |
-      curl -sS https://starship.rs/install.sh | sh -s -- -y
+  ansible.builtin.get_url:
+    url: https://starship.rs/install.sh
+    dest: /tmp/starship_install.sh
+    mode: "0755"
+    owner: root
+    group: root
+    force: true
+  become: true
+
+- name: Run Starship install script
+  ansible.builtin.command:
+    cmd: /bin/sh /tmp/starship_install.sh -y
     creates: /usr/local/bin/starship
+  become: true
+
+- name: Remove Starship install script
+  ansible.builtin.file:
+    path: /tmp/starship_install.sh
+    state: absent
   become: true
 
 - name: Verify Starship installation
