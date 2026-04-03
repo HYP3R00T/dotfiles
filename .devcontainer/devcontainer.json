@@ -22,7 +22,8 @@
                 "EditorConfig.EditorConfig",
                 "timonwong.shellcheck",
                 "DavidAnson.vscode-markdownlint",
-                "mkhl.shfmt"
+                "mkhl.shfmt",
+                "redhat.ansible"
             ]
         }
     }
