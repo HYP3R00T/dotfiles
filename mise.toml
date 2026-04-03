@@ -14,3 +14,7 @@ _.python.venv = ".venv"
 
 [hooks]
 enter = "bash ./scripts/enter_project.sh"
+
+[tasks.ansible_lint]
+run = "ANSIBLE_CONFIG=ansible/ansible.cfg ansible-lint ansible/"
+description = "Run ansible lint"
