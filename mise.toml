@@ -2,6 +2,7 @@
 uv = "latest"
 prek = "latest"
 shellcheck = "latest"
+node = "lts"
 
 [settings]
 experimental = true
