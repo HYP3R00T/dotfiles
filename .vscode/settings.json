@@ -3,6 +3,10 @@
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
   },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.venv": true
+  },
   "shellcheck.ignorePatterns": {
     "**/.shellcheckrc": true
   },
