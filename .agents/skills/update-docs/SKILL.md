@@ -22,7 +22,7 @@ argument-hint: 'Describe what docs to update and what should change.'
 ## Procedure
 
 1. Identify the requested docs scope.
-2. Read relevant files first (for example `docs/index.md`, `zensical.toml`, `README.md`, `AGENTS.md`).
+2. Read relevant files first (for example `docs/index.md`, `zensical.toml`).
 3. Apply documentation principles from the local skill references listed below.
 4. Make minimal, targeted edits that preserve existing style and structure.
 5. If navigation or metadata is changed, verify corresponding entries in `zensical.toml`.
