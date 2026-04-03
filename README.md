@@ -15,7 +15,7 @@ This repo automates the entire environment setup process:
 
 ## 🗂️ Repository Layout
 
-```
+```sh
 .
 ├── ansible/          # OS-level package and config setup
 │   ├── playbooks/    # Per-variant Ansible playbooks

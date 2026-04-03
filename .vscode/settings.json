@@ -1,23 +1,14 @@
 {
-  "shellcheck.enable": true,
-  "shellcheck.enableQuickFix": true,
-  "shellcheck.run": "onType",
+  "explorer.excludeGitIgnore": true,
   "[shellscript]": {
     "editor.defaultFormatter": "mkhl.shfmt"
+  },
+  "search.exclude": {
+    "**/.git": true,
+    "**/.venv": true
   },
   "shellcheck.ignorePatterns": {
     "**/.shellcheckrc": true
   },
-  "files.exclude": {
-    "**/.git": true,
-    "**/.svn": true,
-    "**/.hg": true,
-    "**/.DS_Store": true,
-    "**/Thumbs.db": true
-  },
-  "debug.javascript.defaultRuntimeExecutable": {
-    "pwa-node": "/home/hyperoot/.local/share/mise/shims/node"
-  },
-  "shellcheck.executablePath": "/home/hyperoot/.local/share/mise/shims/shellcheck",
-  "python.defaultInterpreterPath": "/home/hyperoot/.local/share/mise/installs/python/3.13.5/bin/python"
+  "shfmt.executablePath": "/home/vscode/.local/share/mise/shims/shfmt"
 }

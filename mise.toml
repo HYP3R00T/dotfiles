@@ -1,0 +1,25 @@
+[tools]
+uv = "latest"
+prek = "latest"
+shellcheck = "latest"
+node = "lts"
+markdownlint-cli2 = "latest"
+
+[settings]
+experimental = true
+
+[env]
+_.file = '.env'         # for sensitive data
+UV_LINK_MODE = "copy"
+_.python.venv = ".venv"
+
+[hooks]
+enter = "bash ./scripts/enter_project.sh"
+
+[tasks.ansible_lint]
+run = "ANSIBLE_CONFIG=ansible/ansible.cfg ansible-lint ansible/"
+description = "Run ansible lint"
+
+[tasks.docs]
+run = "zensical serve"
+description = "Serve the documentation locally"

@@ -1,4 +1,6 @@
-- import_playbook: common.yml
+# Wrapper play for WSL variant (named to satisfy ansible-lint)
+- name: WSL playbook
+  import_playbook: common.yml
 # - name: Variant specific setup
 #   hosts: all
 #   gather_facts: yes

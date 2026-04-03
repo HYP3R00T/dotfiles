@@ -4,7 +4,7 @@
     state: present
   become: true
   become_user: root
-  become_method: sudo
+  become_method: ansible.builtin.sudo
 
 - name: Set zsh as default shell
   ansible.builtin.user:
@@ -23,10 +23,12 @@
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
     dest: "{{ ansible_env.HOME }}/.zsh/zsh-autosuggestions"
-    force: yes
+    force: true
+    version: main
 
 - name: Add zsh-syntax-highlighting plugin
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
     dest: "{{ ansible_env.HOME }}/.zsh/zsh-syntax-highlighting"
-    force: yes
+    force: true
+    version: main
