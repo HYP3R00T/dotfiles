@@ -9,9 +9,8 @@ markdownlint-cli2 = "latest"
 experimental = true
 
 [env]
-_.file = '.env'         # for sensitive data
+_.file = '.env'       # for sensitive data
 UV_LINK_MODE = "copy"
-_.python.venv = ".venv"
 
 [hooks]
 enter = "bash ./scripts/enter_project.sh"
