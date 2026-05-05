@@ -3,6 +3,7 @@ markdownlint-cli2 = "latest"
 node = "lts"
 prek = "latest"
 shellcheck = "latest"
+shfmt = "latest"
 uv = "latest"
 
 [settings]
