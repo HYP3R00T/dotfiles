@@ -3,13 +3,22 @@ repos:
     rev: v6.0.0
     hooks:
       - id: check-json
+        files: "\\.json$"
+        stages: [ pre-commit ]
+        exclude: "^\\.git/"
       - id: check-toml
+        files: "\\.toml$"
+        stages: [ pre-commit ]
+        exclude: "^\\.git/"
       - id: check-yaml
+        files: "\\.(yaml|yml)$"
+        stages: [ pre-commit ]
+        exclude: "^\\.git/"
       - id: end-of-file-fixer
       - id: mixed-line-ending
-        args: [--fix=lf]
+        args: [ --fix=lf ]
       - id: trailing-whitespace
-        args: [--markdown-linebreak-ext=md]
+        args: [ --markdown-linebreak-ext=md ]
       - id: check-shebang-scripts-are-executable
       - id: check-added-large-files
       - id: check-merge-conflict
@@ -19,7 +28,7 @@ repos:
     rev: v4.13.9
     hooks:
       - id: commitizen
-        stages: [commit-msg]
+        stages: [ commit-msg ]
 
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.11.0.1
@@ -30,5 +39,5 @@ repos:
     rev: 0.10.10
     hooks:
       - id: uv-lock
-        args: [--check]
+        args: [ --check ]
       - id: uv-export
