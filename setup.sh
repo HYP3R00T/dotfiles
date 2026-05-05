@@ -40,6 +40,7 @@ main() {
     handle_chezmoi "$VARIANT"
     ;;
   devcontainer)
+    handle_ansible "$VARIANT"
     handle_mise "$VARIANT"
     handle_chezmoi "$VARIANT"
     ;;
