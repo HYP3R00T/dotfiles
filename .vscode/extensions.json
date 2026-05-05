@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    "christian-kohler.path-intellisense",
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
+    "github.vscode-github-actions",
+    "hverlin.mise-vscode",
+    "mkhl.shfmt",
+    "ms-python.python",
+    "redhat.ansible",
+    "redhat.vscode-yaml",
+    "timonwong.shellcheck"
+  ]
+}
