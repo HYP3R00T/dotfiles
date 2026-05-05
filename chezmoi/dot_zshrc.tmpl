@@ -139,8 +139,8 @@ fi
 
 {{ if $install.bottom }}
 # bottom setup
-if ! mise which bottom &>/dev/null; then
-    mise use -g bottom@latest
+if ! mise which btm &>/dev/null; then
+    mise use -g btm@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}
