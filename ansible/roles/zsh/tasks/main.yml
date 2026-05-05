@@ -8,27 +8,27 @@
 
 - name: Set zsh as default shell
   ansible.builtin.user:
-    name: "{{ ansible_facts['ansible_user_id'] }}"
+    name: "{{ ansible_facts['user_id'] }}"
     shell: /usr/bin/zsh
     state: present
   become: true
 
 - name: Ensure .zsh directory exists
   ansible.builtin.file:
-    path: "{{ ansible_facts['ansible_user_dir'] }}/.zsh"
+    path: "{{ ansible_facts['user_dir'] }}/.zsh"
     state: directory
     mode: "0755"
 
 - name: Add zsh-autosuggestions plugin
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-autosuggestions.git"
-    dest: "{{ ansible_facts['ansible_user_dir'] }}/.zsh/zsh-autosuggestions"
+    dest: "{{ ansible_facts['user_dir'] }}/.zsh/zsh-autosuggestions"
     force: true
     version: master
 
 - name: Add zsh-syntax-highlighting plugin
   ansible.builtin.git:
     repo: "https://github.com/zsh-users/zsh-syntax-highlighting.git"
-    dest: "{{ ansible_facts['ansible_user_dir'] }}/.zsh/zsh-syntax-highlighting"
+    dest: "{{ ansible_facts['user_dir'] }}/.zsh/zsh-syntax-highlighting"
     force: true
     version: master
