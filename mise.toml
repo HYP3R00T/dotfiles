@@ -20,11 +20,11 @@ UV_LINK_MODE = "copy"
 enter = "bash ./scripts/enter_project.sh"
 
 [tasks.ansible_lint]
-run = "ANSIBLE_CONFIG=ansible/ansible.cfg uv run ansible-lint ansible/"
+run = "ANSIBLE_CONFIG=ansible/ansible.cfg ansible-lint ansible/"
 description = "Run ansible lint"
 
 [tasks.ansible_check]
-run = "ANSIBLE_CONFIG=ansible/ansible.cfg uv run ansible-playbook --check ansible/playbooks/common.yml"
+run = "ANSIBLE_CONFIG=ansible/ansible.cfg ansible-playbook --check ansible/playbooks/common.yml"
 description = "Run a quick ansible check-mode pass"
 
 [tasks.docs]
