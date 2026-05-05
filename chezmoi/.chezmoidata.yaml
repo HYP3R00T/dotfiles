@@ -61,27 +61,27 @@ data:
         pnpm: false # mise
     devcontainer:
       install:
-        starship: true # mise
+        starship: true # ansible
         tmux: true # ansible
-        zsh_plugin: false # ansible
-        kubectl: true # mise
-        terraform: true # mise
+        zsh_plugin: true # ansible
+        kubectl: false # mise
+        terraform: false # mise
         zoxide: true # mise
         fzf: true # mise
         bat: true # mise
         dust: false # mise
         fastfetch: false # mise
         dive: false # mise
-        btop: false # mise
+        btop: true # mise
         eza: true # mise
         ytdlp: false # mise
         shfmt: true # mise
         shellcheck: true # mise
-        jq: false # mise
-        jqp: false # mise
+        jq: true # mise
+        jqp: true # mise
         podman: false # mise
-        flux2: true # mise
-        k9s: true # mise
+        flux2: false # mise
+        k9s: false # mise
         vault: false # mise
         direnv: true # mise
         ripgrep: true # mise
