@@ -1,6 +1,7 @@
 # Wrapper play for workstation variant (named to satisfy ansible-lint)
 - name: Workstation playbook
   import_playbook: common.yml
+
 # - name: Variant specific setup
 #   hosts: all
 #   gather_facts: yes

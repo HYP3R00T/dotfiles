@@ -1,6 +1,7 @@
 # Wrapper play for devcontainer variant (named to satisfy ansible-lint)
 - name: Devcontainer playbook
   import_playbook: common.yml
+
 # - name: Variant specific setup
 #   hosts: all
 #   gather_facts: yes
