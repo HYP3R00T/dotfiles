@@ -9,6 +9,5 @@
   },
   "shellcheck.ignorePatterns": {
     "**/.shellcheckrc": true
-  },
-  "shfmt.executablePath": "/home/vscode/.local/share/mise/shims/shfmt"
+  }
 }
