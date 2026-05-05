@@ -1,12 +1,15 @@
 [tools]
-uv = "latest"
+markdownlint-cli2 = "latest"
+node = "lts"
 prek = "latest"
 shellcheck = "latest"
-node = "lts"
-markdownlint-cli2 = "latest"
+uv = "latest"
 
 [settings]
 experimental = true
+
+[settings.aqua]
+github_attestations = false
 
 [env]
 _.file = '.env'       # for sensitive data
