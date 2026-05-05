@@ -113,9 +113,9 @@ if ! mise which dive &>/dev/null; then
 fi
 {{ end }}
 
-{{ if $install.btop }}
-if ! mise which btop &>/dev/null; then
-    mise use -g btop@latest
+{{ if $install.bottom }}
+if ! mise which bottom &>/dev/null; then
+    mise use -g bottom@latest
     eval "$(mise activate bash)"
 fi
 {{ end }}

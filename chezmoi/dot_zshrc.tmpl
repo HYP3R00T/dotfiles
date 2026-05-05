@@ -137,10 +137,10 @@ if ! mise which dive &>/dev/null; then
 fi
 {{ end }}
 
-{{ if $install.btop }}
-# btop setup
-if ! mise which btop &>/dev/null; then
-    mise use -g btop@latest
+{{ if $install.bottom }}
+# bottom setup
+if ! mise which bottom &>/dev/null; then
+    mise use -g bottom@latest
     eval "$(mise activate zsh)"
 fi
 {{ end }}

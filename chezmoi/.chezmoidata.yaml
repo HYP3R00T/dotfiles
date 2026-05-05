@@ -14,7 +14,7 @@ data:
         dust: true # mise
         fastfetch: true # mise
         dive: true # mise
-        btop: true # mise
+        bottom: true # mise
         eza: true # mise
         ytdlp: true # mise
         shfmt: true # mise
@@ -43,7 +43,7 @@ data:
         dust: true # mise
         fastfetch: true # mise
         dive: true # mise
-        btop: true # mise
+        bottom: true # mise
         eza: true # mise
         ytdlp: false # mise
         shfmt: true # mise
@@ -72,7 +72,7 @@ data:
         dust: false # mise
         fastfetch: false # mise
         dive: false # mise
-        btop: true # mise
+        bottom: true # mise
         eza: true # mise
         ytdlp: false # mise
         shfmt: true # mise
