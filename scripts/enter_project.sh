@@ -2,12 +2,14 @@
 set -eu
 
 # Ensure Commitizen (cz) is available
-if ! command -v cz >/dev/null 2>&1; then
-  uv tool install commitizen
-  command -v cz >/dev/null 2>&1 || {
-    echo "Failed to install commitizen"
-    exit 1
-  }
+if command -v uv >/dev/null 2>&1; then
+  if ! command -v cz >/dev/null 2>&1; then
+    uv tool install commitizen
+    command -v cz >/dev/null 2>&1 || {
+      echo "Failed to install commitizen"
+      exit 1
+    }
+  fi
 fi
 
 # Ensure prek is installed and hooks are set up idempotently
