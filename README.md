@@ -43,14 +43,15 @@ Each environment has a tailored setup via separate playbooks, mise configs, and 
 Run the setup script directly for your target environment:
 
 ```bash
-# For DevContainers (default)
-bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh)
+curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
+```
 
-# For WSL
-bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) wsl
+```bash
+VARIANT=wsl curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
+```
 
-# For a workstation
-bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) workstation
+```bash
+VARIANT=workstation curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
 ```
 
 The script performs:
@@ -81,7 +82,7 @@ All tools are auto-installed if missing - no manual setup required.
 
 ## 🤝 License
 
-MIT – Fork freely, customize endlessly!
+[MIT](./LICENSE) – Fork freely, customize endlessly!
 
 ## 👋 Who Should Use This?
 
