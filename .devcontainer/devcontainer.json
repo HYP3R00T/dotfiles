@@ -4,7 +4,7 @@
     "context": ".",
     "dockerfile": "Dockerfile"
   },
-  "postCreateCommand": "scripts/setup.sh",
+  "postCreateCommand": "scripts/devcontainer_setup.sh",
   "remoteEnv": {
     "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
   },
