@@ -1,5 +1,4 @@
 [tools]
-markdownlint-cli2 = "latest"
 node = "lts"
 prek = "latest"
 shellcheck = "latest"
