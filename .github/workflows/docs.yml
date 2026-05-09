@@ -6,6 +6,7 @@ on:
     paths:
       - "docs/**"
       - "zensical.toml"
+      - "setup.sh"
   workflow_dispatch:
 
 permissions:
@@ -32,6 +33,9 @@ jobs:
 
       - name: Build the site
         run: uv run zensical build --clean
+
+      - name: Publish installer endpoint
+        run: cp setup.sh site/setup.sh
 
       - uses: actions/upload-pages-artifact@v4
         with:
