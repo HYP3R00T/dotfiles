@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VARIANT="${1:-devcontainer}"
+VARIANT="${1:-${VARIANT:-devcontainer}}"
 REPO_URL="https://github.com/HYP3R00T/dotfiles"
 
 # Where this script lives
