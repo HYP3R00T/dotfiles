@@ -9,7 +9,7 @@ icon: lucide/rocket
 Run the repository installer to provision a host or developer environment:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/HYP3R00T/dotfiles/main/setup.sh) [variant]
+bash <(curl -fsSL https://dotfiles.hyperoot.dev/setup.sh) [variant]
 # default variant is `devcontainer` when omitted
 ```
 
