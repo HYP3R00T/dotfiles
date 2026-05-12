@@ -4,14 +4,12 @@ set -euo pipefail
 VARIANT="${1:-devcontainer}"
 REPO_URL="https://github.com/HYP3R00T/dotfiles"
 
-# Where this script lives
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Determine script dir (uses /nonexistent when piped)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-/nonexistent}")" >/dev/null 2>&1 && pwd || echo /nonexistent)"
 
-# If we're not in a real clone (no .git, or missing scripts), clone
-if [[ -z "$SCRIPT_DIR" ]] ||
-  [[ ! -d "$SCRIPT_DIR/.git" ]] ||
-  [[ ! -d "$SCRIPT_DIR/scripts" ]]; then
-
+# If this isn't a dotfiles clone, clone and re-run
+remote_url="$(git -C "$SCRIPT_DIR" remote get-url origin 2>/dev/null || true)"
+if [ ! -d "$SCRIPT_DIR/.git" ] || [ ! -d "$SCRIPT_DIR/scripts" ] || [ -z "$remote_url" ] || ! echo "$remote_url" | grep -q 'HYP3R00T/dotfiles'; then
   echo "📦 Not a full clone or missing files; cloning dotfiles repo into temp dir..."
   TMP_DIR="$(mktemp -d)"
   git clone --depth 1 "$REPO_URL" "$TMP_DIR"
