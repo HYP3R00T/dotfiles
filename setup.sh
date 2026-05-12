@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VARIANT="${1:-${VARIANT:-devcontainer}}"
+VARIANT="${1:-devcontainer}"
 REPO_URL="https://github.com/HYP3R00T/dotfiles"
 
-# Where this script lives (handle piped scripts where BASH_SOURCE[0] may be unset)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-$0}")" && pwd)" 2>/dev/null || SCRIPT_DIR="."
+# Where this script lives
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# If we're not in a real clone (no .git, or missing scripts/ or missing the variant script), clone
-if [[ ! -d "$SCRIPT_DIR/.git" ]] ||
+# If we're not in a real clone (no .git, or missing scripts), clone
+if [[ -z "$SCRIPT_DIR" ]] ||
+  [[ ! -d "$SCRIPT_DIR/.git" ]] ||
   [[ ! -d "$SCRIPT_DIR/scripts" ]]; then
 
   echo "📦 Not a full clone or missing files; cloning dotfiles repo into temp dir..."
