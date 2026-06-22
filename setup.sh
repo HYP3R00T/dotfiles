@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# increase the counter
+curl -fsS -X POST https://counterhub.fastapicloud.dev/count/dotfiles > /dev/null
+
 VARIANT="${1:-devcontainer}"
 REPO_URL="https://github.com/HYP3R00T/dotfiles"
 
