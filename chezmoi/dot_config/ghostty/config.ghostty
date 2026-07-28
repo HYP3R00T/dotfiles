@@ -1,6 +1,7 @@
 theme = Catppuccin Mocha
+
+font-family = "FiraCode Nerd Font Mono"
 font-size = 13
 font-feature = +calt
 font-feature = +liga
 font-feature = +dlig
-font-family = "FiraCode Nerd Font Mono"
