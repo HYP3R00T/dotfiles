@@ -16,9 +16,9 @@ setup_ansible() {
   DISTRO=$(detect_distro)
 
   case "$DISTRO" in
-  ubuntu | debian)
-    sudo apt-get update -y
-    sudo apt-get install -y ansible
+  ubuntu | debian | pop)
+    sudo apt update -y
+    sudo apt install -y ansible
     ;;
   fedora)
     sudo dnf install -y ansible
