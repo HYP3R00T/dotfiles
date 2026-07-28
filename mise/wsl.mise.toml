@@ -1,3 +1,36 @@
+min_version = "2026.7.4"
+
+[settings]
+experimental = true
+
+[settings.aqua]
+github_attestations = false
+
+[bootstrap.packages]
+"apk:curl" = "latest"
+"apk:git" = "latest"
+"apk:tmux" = "latest"
+"apk:zsh" = "latest"
+"apt:curl" = "latest"
+"apt:git" = "latest"
+"apt:tmux" = "latest"
+"apt:zsh" = "latest"
+"dnf:curl" = "latest"
+"dnf:git" = "latest"
+"dnf:tmux" = "latest"
+"dnf:zsh" = "latest"
+"pacman:curl" = "latest"
+"pacman:git" = "latest"
+"pacman:tmux" = "latest"
+"pacman:zsh" = "latest"
+
+[bootstrap.repos]
+"~/.zsh/zsh-autosuggestions" = { url = "https://github.com/zsh-users/zsh-autosuggestions.git", ref = "master" }
+"~/.zsh/zsh-syntax-highlighting" = { url = "https://github.com/zsh-users/zsh-syntax-highlighting.git", ref = "master" }
+
+[bootstrap.user]
+login_shell = "/usr/bin/zsh"
+
 [tools]
 starship = "latest"
 kubectl = "latest"
@@ -19,3 +52,10 @@ direnv = "latest"
 ripgrep = "latest"
 lazydocker = "latest"
 uv = "latest"
+
+[tasks.bootstrap]
+description = "Configure user-level settings not covered by declarative bootstrap sections"
+run = [
+  "git config --global user.name Rajesh",
+  "git config --global user.email hyperoot.tech@proton.me",
+]

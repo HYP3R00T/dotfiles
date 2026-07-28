@@ -23,7 +23,6 @@
         "timonwong.shellcheck",
         "DavidAnson.vscode-markdownlint",
         "mkhl.shfmt",
-        "redhat.ansible",
         "github.vscode-github-actions"
       ]
     }

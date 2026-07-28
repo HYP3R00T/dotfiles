@@ -24,33 +24,21 @@ fi
 # From here on, we're in a full repo clone that has everything
 echo "🏠 Detected local clone at $SCRIPT_DIR — running bootstrap for: $VARIANT"
 
-# Source your three helpers
-source "$SCRIPT_DIR/scripts/ansible.sh"
+# Source setup helpers
 source "$SCRIPT_DIR/scripts/mise.sh"
 source "$SCRIPT_DIR/scripts/chezmoi.sh"
 
 main() {
   case "$VARIANT" in
-  workstation)
-    handle_ansible "$VARIANT"
-    handle_mise "$VARIANT"
-    handle_chezmoi
-    ;;
-  wsl)
-    handle_ansible "$VARIANT"
-    handle_mise "$VARIANT"
-    handle_chezmoi
-    ;;
-  devcontainer)
-    handle_ansible "$VARIANT"
-    handle_mise "$VARIANT"
-    handle_chezmoi
-    ;;
+  workstation | wsl | devcontainer) ;;
   *)
     echo "❌ Unknown variant: $VARIANT"
     exit 1
     ;;
   esac
+
+  handle_mise "$VARIANT"
+  handle_chezmoi
 }
 
 main

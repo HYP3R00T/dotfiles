@@ -1,90 +1,83 @@
-# 🧪 dotfiles
+# Dotfiles
 
-A cross-platform dotfiles and system bootstrapping toolkit powered by **Ansible**, **mise-en-place**, and **chezmoi**. Designed to reproducibly configure environments across **bare metal**, **WSL**, and **DevContainers** - all from a single declarative codebase.
+A cross-platform dotfiles and system bootstrapping toolkit powered by **mise-en-place** and **chezmoi**. It reproducibly configures bare-metal workstations, WSL, and DevContainers from one declarative codebase.
 
-> 🚀 Zero-to-productive in minutes with one command.
+> Zero-to-productive in minutes with one command.
 
-## ⚙️ What It Does
+## What It Does
 
 This repo automates the entire environment setup process:
 
-- 🧰 Installs core packages using [Ansible](https://www.ansible.com/)
-- 🧠 Manages language tools and CLIs with [`mise`](https://mise.jdx.dev)
-- 🎯 Applies dotfiles declaratively using [`chezmoi`](https://www.chezmoi.io)
-- 🧵 Everything driven by a single orchestrator script: `setup.sh`
+- Installs native packages and configures the login shell with [`mise bootstrap`](https://mise.jdx.dev/bootstrap.html).
+- Manages language tools and CLIs with [`mise`](https://mise.jdx.dev).
+- Applies dotfiles declaratively using [`chezmoi`](https://www.chezmoi.io).
+- Runs the complete variant-aware workflow through `setup.sh`.
 
-## 🗂️ Repository Layout
+## Repository Layout
 
-```sh
+```text
 .
-├── ansible/          # OS-level package and config setup
-│   ├── playbooks/    # Per-variant Ansible playbooks
-│   ├── roles/        # Modular Ansible roles (zsh, tmux, etc.)
-│   └── vars/         # Variant-specific variables
-├── chezmoi/          # Templated dotfiles and per-variant configs
-├── mise/             # Per-variant mise configuration
-├── scripts/          # Modular orchestration logic
-├── setup.sh          # Main entrypoint
-└── README.md
+├── chezmoi/             # Dotfiles managed by chezmoi
+├── mise/                 # Self-contained configuration for each variant
+├── scripts/             # Bootstrap helper scripts
+├── mise.toml            # Repository development tools and tasks
+└── setup.sh             # Main entrypoint
 ```
 
-## 🧑‍💻 Supported Environments
+## Supported Environments
 
-| Variant       | Description                          |
-|---------------|--------------------------------------|
-| `workstation` | Bare metal Linux system              |
-| `wsl`         | Windows Subsystem for Linux          |
-| `devcontainer`| Development inside VSCode containers |
+| Variant | Description |
+| --- | --- |
+| `workstation` | Bare-metal Linux system |
+| `wsl` | Windows Subsystem for Linux |
+| `devcontainer` | Development inside VS Code containers |
 
-Each environment has a tailored setup via separate playbooks, mise configs, and chezmoi templates.
+Every variant has a self-contained configuration in `mise/`.
 
-## 🚀 Quick Start
+## Quick Start
 
 Run the setup script directly for your target environment:
 
-```bash
+```shell
 curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
 ```
 
-```bash
-VARIANT=wsl curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
+```shell
+curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 ```
 
-```bash
-VARIANT=workstation curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
+```shell
+curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- workstation
 ```
 
 The script performs:
 
-1. **Validation** - ensures a proper clone or re-clones it
-2. **Orchestration** - runs:
-   - `ansible.sh` to install system packages (if applicable)
-   - `mise.sh` to install tools from `.mise.toml`
-   - `chezmoi.sh` to apply variant-specific dotfiles
+1. Validates that it is running from the dotfiles repository, cloning a temporary copy when necessary.
+2. Runs `mise bootstrap` with the selected variant configuration.
+3. Applies the dotfiles with chezmoi.
 
-## 🛠️ Core Technologies
+## Core Technologies
 
-| Tool      | Purpose                            |
-|-----------|------------------------------------|
-| Ansible   | System-level provisioning          |
-| mise      | Language/tool version management   |
-| chezmoi   | Declarative dotfile management     |
-| Bash      | Variant-aware orchestration        |
+| Tool | Purpose |
+| --- | --- |
+| mise | Native packages, repositories, user setup, and development tools |
+| chezmoi | Declarative dotfile management |
+| Bash | Initial installation and variant-aware orchestration |
 
-All tools are auto-installed if missing - no manual setup required.
+Mise and chezmoi are installed automatically when missing. Mise bootstrap requires mise 2026.7.4 or newer.
 
-## 💡 Design Philosophy
+## Design Philosophy
 
-- ✅ **Declarative**: All environments driven by clean YAML and TOML
-- 🔁 **Reproducible**: Consistent results across reboots and re-clones
-- 📦 **Modular**: Easily extend with new variants or roles
-- ⚡ **Fast**: Typically runs in under a minute
+- **Declarative**: Environments are described with TOML and chezmoi source files.
+- **Reproducible**: Bootstrap operations converge on the configured state.
+- **Explicit**: Each variant file describes its complete environment.
+- **Focused**: Mise owns machine setup and tools; chezmoi owns dotfiles.
 
-## 🤝 License
+## License
 
-[MIT](./LICENSE) – Fork freely, customize endlessly!
+[MIT](./LICENSE)
 
-## 👋 Who Should Use This?
+## Who Should Use This?
 
 - DevOps engineers who want portable environments
 - Developers working across containers, WSL, and Linux
