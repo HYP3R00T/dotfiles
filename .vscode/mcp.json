@@ -8,14 +8,6 @@
       "env": {
         "MISE_EXPERIMENTAL": "1"
       }
-    },
-    "ansible": {
-      "command": "npx",
-      "args": [
-        "--yes",
-        "@ansible/ansible-mcp-server",
-        "--stdio"
-      ]
     }
   }
 }
