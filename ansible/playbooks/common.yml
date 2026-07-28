@@ -3,8 +3,8 @@
   gather_facts: true # Usually useful unless you have a reason to skip
   vars_files:
     - ../vars/common.yml # If you have vars common to all variants
-  roles:
-    - git
-    - tmux
-    - zsh
-    - starship
+  # roles:
+  #   - git
+  #   - tmux
+  #   - zsh
+  #   - starship
