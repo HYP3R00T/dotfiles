@@ -34,17 +34,17 @@ main() {
   workstation)
     handle_ansible "$VARIANT"
     handle_mise "$VARIANT"
-    handle_chezmoi "$VARIANT"
+    handle_chezmoi
     ;;
   wsl)
     handle_ansible "$VARIANT"
     handle_mise "$VARIANT"
-    handle_chezmoi "$VARIANT"
+    handle_chezmoi
     ;;
   devcontainer)
     handle_ansible "$VARIANT"
     handle_mise "$VARIANT"
-    handle_chezmoi "$VARIANT"
+    handle_chezmoi
     ;;
   *)
     echo "❌ Unknown variant: $VARIANT"
