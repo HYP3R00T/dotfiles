@@ -31,6 +31,13 @@ github_attestations = false
 [bootstrap.user]
 login_shell = "/usr/bin/zsh"
 
+[tasks.bootstrap]
+description = "Configure user-level settings not covered by declarative bootstrap sections"
+run = [
+  "git config --global user.name Rajesh",
+  "git config --global user.email hyperoot.tech@proton.me",
+]
+
 [tools]
 starship = "latest"
 kubectl = "latest"
@@ -52,10 +59,3 @@ direnv = "latest"
 ripgrep = "latest"
 lazydocker = "latest"
 uv = "latest"
-
-[tasks.bootstrap]
-description = "Configure user-level settings not covered by declarative bootstrap sections"
-run = [
-  "git config --global user.name Rajesh",
-  "git config --global user.email hyperoot.tech@proton.me",
-]
