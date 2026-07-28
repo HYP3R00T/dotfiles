@@ -1,8 +1,3 @@
-{{- $variant := .chezmoi.config.scriptEnv.variant | default "workstation" -}}
-{{- $install := (index .data.variants $variant).install | default dict -}}
-
-{{- if $install.starship }}
-
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
@@ -350,5 +345,3 @@ symbol = " "
 [zig]
 disabled = true
 symbol = " "
-
-{{ end }}
