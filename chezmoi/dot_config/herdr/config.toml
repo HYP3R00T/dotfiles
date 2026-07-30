@@ -1,0 +1,20 @@
+onboarding = false
+[theme]
+name = "catppuccin"
+
+
+[keys]
+prefix = "ctrl+space"
+reload_config = "prefix+r"
+goto = "prefix+space"
+previous_tab = ["prefix+shift+h", "alt+shift+left"]
+next_tab = ["prefix+shift+l", "alt+shift+right"]
+focus_pane_left = ["prefix+h", "alt+left"]
+focus_pane_down = ["prefix+j", "alt+down"]
+focus_pane_up = ["prefix+k", "alt+up"]
+focus_pane_right = ["prefix+l", "alt+right"]
+split_vertical = "prefix+|"
+resize_mode = "prefix+shift+r"
+
+[experimental]
+pane_history = false

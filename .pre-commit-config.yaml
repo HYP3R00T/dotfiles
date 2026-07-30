@@ -5,7 +5,7 @@ repos:
       - id: check-json
         files: "\\.json$"
         stages: [ pre-commit ]
-        exclude: "^\\.git/"
+        exclude: "^(\\.git/|chezmoi/dot_config/zed/(keymap|private_settings)\\.json$)"
       - id: check-toml
         files: "\\.toml$"
         stages: [ pre-commit ]

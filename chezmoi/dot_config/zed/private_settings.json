@@ -1,0 +1,130 @@
+{
+  "show_wrap_guides": true,
+  "cli_default_open_behavior": "existing_window",
+  "diff_view_style": "unified",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Material Icon Theme",
+    "dark": "Material Icon Theme"
+  },
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha - No Italics"
+  },
+  "theme_overrides": {
+    "Catppuccin Mocha - No Italics": {
+      "border.variant": "#1e1e2e",
+      "border": "#11111b",
+      "title_bar.background": "#11111b",
+      "panel.background": "#11111b",
+      "panel.focused_border": "#4E466E",
+      "players": [
+        {
+          "cursor": "#cba6f7"
+        }
+      ]
+    }
+  },
+  "buffer_font_family": "FiraCode Nerd Font Mono",
+  "terminal": {
+    "font_family": "FiraCode Nerd Font Mono"
+  },
+  "preferred_line_length": 120,
+  "soft_wrap": "bounded",
+  "file_finder": {
+    "modal_max_width": "medium"
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "minimap": {
+    "show": "always"
+  },
+  "gutter": {
+    "min_line_number_digits": 0
+  },
+  "indent_guides": {
+    "enabled": false
+  },
+  "tab_bar": {
+    "show_tab_bar_buttons": false
+  },
+  "format_on_save": "on",
+  "show_whitespaces": "none",
+  "tab_size": 2,
+  "cursor_shape": "bar",
+  "cursor_blink": false,
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "default_width": 300,
+    "dock": "left",
+    "hide_gitignore": false,
+    "hide_root": true,
+    "indent_guides": {
+      "show": "never"
+    },
+    "sticky_scroll": false
+  },
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+
+  "git_panel": {
+    "dock": "right"
+  },
+  "languages": {
+    "Python": {
+      "language_servers": ["ty", "ruff"]
+    },
+    "Markdown": {
+      "show_completions_on_input": false
+    },
+    "YAML": {
+      "language_servers": [] // undo this once things are fixed
+    }
+  },
+  "disable_ai": false,
+  "language_models": {
+    "opencode": {
+      "show_zen_models": false,
+      "show_free_models": true,
+      "show_go_models": false
+    }
+  },
+  "agent": {
+    "default_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-5.6-sol",
+      "enable_thinking": true,
+      "effort": "medium"
+    },
+    "show_turn_stats": true,
+    "thinking_display": "always_collapsed",
+    "auto_compact": {
+      "threshold": "90%"
+    },
+    "sidebar_side": "right",
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": []
+  },
+  "agent_servers": {
+    "codex-acp": {
+      "default_config_options": {
+        "mode": "agent"
+      },
+      "type": "registry"
+    }
+  },
+  "context_servers": {},
+  "show_edit_predictions": false,
+  "edit_predictions": {
+    "provider": "none",
+    "allow_data_collection": "no",
+    "mode": "subtle"
+  }
+}

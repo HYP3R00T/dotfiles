@@ -5,3 +5,8 @@ font-size = 13
 font-feature = +calt
 font-feature = +liga
 font-feature = +dlig
+
+keybind = performable:ctrl+c=copy_to_clipboard
+keybind = ctrl+alt+f=toggle_window_decorations
+
+window-padding-x = 16
