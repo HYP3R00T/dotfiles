@@ -113,6 +113,9 @@
     "model_parameters": []
   },
   "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    },
     "codex-acp": {
       "default_config_options": {
         "mode": "agent"

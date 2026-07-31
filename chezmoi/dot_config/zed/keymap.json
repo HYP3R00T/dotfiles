@@ -21,31 +21,31 @@
   {
     "context": "Pane",
     "bindings": {
-      "ctrl-tab": "pane::ActivateNextItem",
-    },
+      "ctrl-tab": "pane::ActivateNextItem"
+    }
   },
   {
     "context": "Pane",
     "unbind": {
-      "ctrl-pagedown": "pane::ActivateNextItem",
-    },
+      "ctrl-pagedown": "pane::ActivateNextItem"
+    }
   },
   {
     "context": "Pane",
     "bindings": {
-      "ctrl-shift-tab": "pane::ActivatePreviousItem",
-    },
+      "ctrl-shift-tab": "pane::ActivatePreviousItem"
+    }
   },
   {
     "context": "Pane",
     "unbind": {
-      "ctrl-pageup": "pane::ActivatePreviousItem",
-    },
+      "ctrl-pageup": "pane::ActivatePreviousItem"
+    }
   },
   {
     "context": "!AcpThread > Editor && mode == full",
     "unbind": {
-      "ctrl-enter": "assistant::InlineAssist",
-    },
-  },
+      "ctrl-enter": "assistant::InlineAssist"
+    }
+  }
 ]
