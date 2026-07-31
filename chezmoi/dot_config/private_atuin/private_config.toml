@@ -1,0 +1,43 @@
+# Atuin history and search configuration.
+# Sync remains opt-in; mise handles Atuin upgrades.
+auto_sync = false
+update_check = false
+timezone = "local"
+
+search_mode = "fuzzy"
+filter_mode = "global"
+workspaces = true
+
+style = "compact"
+inline_height = 30
+show_preview = true
+max_preview_height = 4
+exit_mode = "return-original"
+
+# Put a selected command on the prompt for review instead of executing it.
+enter_accept = false
+
+# Atuin also honors Zsh's leading-space history exclusion.
+secrets_filter = true
+store_failed = true
+history_filter = [
+    "(^|\\s)(--password|--token|--secret)(=|\\s)",
+]
+
+[search]
+filters = ["global", "workspace", "directory", "session", "host"]
+shells = "auto"
+
+[tmux]
+enabled = true
+width = "85%"
+height = "65%"
+
+[ui]
+# Keep the history list readable in narrow panes. Imported history often lacks
+# exit, duration, and directory metadata, which Atuin displays as "unknown".
+columns = ["time", "command"]
+syntax_highlight = true
+
+[theme]
+name = "catppuccin-mocha-mauve"

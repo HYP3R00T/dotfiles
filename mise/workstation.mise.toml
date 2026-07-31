@@ -39,6 +39,7 @@ run = [
 ]
 
 [tools]
+atuin = "latest"
 bat = "latest"
 bottom = "latest"
 dive = "latest"

@@ -10,6 +10,7 @@ source "$ZSH_CONFIG_DIR/aliases.zsh"
 
 # Interactive tool integrations. Load widget-producing tools before plugins.
 source "$ZSH_CONFIG_DIR/integrations/fzf.zsh"
+source "$ZSH_CONFIG_DIR/integrations/atuin.zsh"
 source "$ZSH_CONFIG_DIR/integrations/zoxide.zsh"
 source "$ZSH_CONFIG_DIR/integrations/kubectl.zsh"
 source "$ZSH_CONFIG_DIR/integrations/flux.zsh"

@@ -39,6 +39,7 @@ run = [
 ]
 
 [tools]
+atuin = "latest"
 starship = "latest"
 kubectl = "latest"
 zoxide = "latest"
