@@ -1,9 +1,18 @@
 # Environment variables and executable search path.
+# shellcheck disable=SC1090,SC2206,SC2296 # This file uses Zsh-specific syntax.
 
 # Keep newly created files private from group writes by default.
 umask 022
 
 export COLORTERM=truecolor
+
+# Use Less as the general-purpose pager when available.
+# shellcheck disable=SC2154 # Zsh's $commands associative array.
+if (( $+commands[less] )); then
+    export PAGER=less
+    export LESS='-RFX'
+fi
+
 # Keep terminal callers blocked until the edited file is closed in Zed.
 export EDITOR="zed --wait"
 export VISUAL="$EDITOR"
