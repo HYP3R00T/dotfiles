@@ -2,8 +2,16 @@
 
 if (( $+commands[python3] )); then
     alias py='python3'
-    alias pya='source ./.venv/bin/activate'
 fi
+
+# Activate a project environment only when it is actually present.
+function pya() {
+    if [[ ! -r ./.venv/bin/activate ]]; then
+        print -u2 'pya: ./.venv/bin/activate does not exist or is not readable'
+        return 1
+    fi
+    source ./.venv/bin/activate
+}
 
 if (( $+commands[kubectl] )); then
     alias k='kubectl'

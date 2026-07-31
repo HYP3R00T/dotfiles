@@ -1,4 +1,4 @@
 # Smarter directory navigation through the cd command.
 
 (( $+commands[zoxide] )) || return 0
-eval "$(zoxide init zsh --cmd cd)"
+_zsh_source_command_cache zoxide zoxide init zsh --cmd cd

@@ -20,3 +20,6 @@ source "$ZSH_CONFIG_DIR/prompt.zsh"
 
 # Keep plugins last, especially syntax highlighting.
 source "$ZSH_CONFIG_DIR/plugins.zsh"
+
+# The cache helper is needed only while loading this configuration.
+unfunction _zsh_source_command_cache 2>/dev/null

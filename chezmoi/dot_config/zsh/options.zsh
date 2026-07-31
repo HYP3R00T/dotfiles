@@ -1,10 +1,9 @@
 # Shell and history options.
 
-HISTSIZE=2000
-SAVEHIST=$HISTSIZE
+HISTSIZE=50000
+SAVEHIST=10000
 HISTFILE="$HOME/.zsh_history"
 
-setopt APPEND_HISTORY          # Append rather than replace the history file.
 setopt SHARE_HISTORY           # Import and append history across sessions.
 setopt HIST_IGNORE_SPACE       # Ignore commands beginning with a space.
 setopt HIST_IGNORE_ALL_DUPS    # Remove older duplicates when adding a command.

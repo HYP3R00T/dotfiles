@@ -1,4 +1,4 @@
 # Flux completion.
 
 (( $+commands[flux] )) || return 0
-source <(flux completion zsh)
+_zsh_source_command_cache flux-completion flux completion zsh

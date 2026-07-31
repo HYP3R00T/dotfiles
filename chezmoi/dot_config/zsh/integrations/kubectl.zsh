@@ -1,4 +1,4 @@
 # kubectl completion.
 
 (( $+commands[kubectl] )) || return 0
-source <(kubectl completion zsh)
+_zsh_source_command_cache kubectl-completion kubectl completion zsh
