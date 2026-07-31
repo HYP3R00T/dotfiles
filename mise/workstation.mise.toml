@@ -25,6 +25,7 @@ github_attestations = false
 "pacman:zsh" = "latest"
 
 [bootstrap.repos]
+"~/.config/delta/catppuccin" = { url = "https://github.com/catppuccin/delta.git", ref = "main" }
 "~/.zsh/zsh-autosuggestions" = { url = "https://github.com/zsh-users/zsh-autosuggestions.git", ref = "master" }
 "~/.zsh/zsh-syntax-highlighting" = { url = "https://github.com/zsh-users/zsh-syntax-highlighting.git", ref = "master" }
 
@@ -43,6 +44,7 @@ atuin = "latest"
 bat = "latest"
 bottom = "latest"
 codex = "latest"
+delta = "latest"
 dive = "latest"
 dust = "latest"
 eza = "latest"
