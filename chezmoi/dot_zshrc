@@ -4,7 +4,7 @@
 typeset -g ZSH_CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 
 if [[ -r "$ZSH_CONFIG_DIR/main.zsh" ]]; then
-    source "$ZSH_CONFIG_DIR/main.zsh"
+  source "$ZSH_CONFIG_DIR/main.zsh"
 else
-    print -u2 "zsh: unable to read $ZSH_CONFIG_DIR/main.zsh"
+  print -u2 "zsh: unable to read $ZSH_CONFIG_DIR/main.zsh"
 fi

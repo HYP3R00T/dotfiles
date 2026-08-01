@@ -3,6 +3,7 @@
 
 source "$ZSH_CONFIG_DIR/environment.zsh"
 source "$ZSH_CONFIG_DIR/integrations/mise.zsh"
+source "$ZSH_CONFIG_DIR/integrations/pnpm.zsh"
 source "$ZSH_CONFIG_DIR/integrations/delta.zsh"
 source "$ZSH_CONFIG_DIR/options.zsh"
 source "$ZSH_CONFIG_DIR/completion.zsh"
