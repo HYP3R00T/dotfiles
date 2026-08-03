@@ -9,4 +9,9 @@ font-feature = +dlig
 keybind = performable:ctrl+c=copy_to_clipboard
 keybind = ctrl+alt+f=toggle_window_decorations
 
-window-padding-x = 16
+# Start borderless; Ctrl+Alt+F restores or hides decorations on demand.
+window-decoration = none
+
+# Keep terminal content comfortably away from the window edges.
+window-padding-x = 20
+window-padding-y = 14
