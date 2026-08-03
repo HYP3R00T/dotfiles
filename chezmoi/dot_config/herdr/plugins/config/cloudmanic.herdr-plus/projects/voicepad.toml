@@ -1,0 +1,10 @@
+name = "Voicepad"
+description = "Voicepad project"
+working_dir = "/home/hyperoot/Projects/voicepad"
+
+[[tabs]]
+name = "pi"
+command = "pi"
+
+[[tabs]]
+name = "terminal"

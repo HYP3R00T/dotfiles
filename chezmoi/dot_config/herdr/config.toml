@@ -21,6 +21,12 @@ focus_pane_right = ["prefix+l", "alt+right"]
 split_vertical = "prefix+|"
 resize_mode = "prefix+shift+r"
 
+[[keys.command]]
+key = "prefix+p"
+type = "plugin_action"
+command = "cloudmanic.herdr-plus.projects"
+description = "herdr-plus: projects"
+
 [experimental]
 kitty_graphics = true
 pane_history = false
