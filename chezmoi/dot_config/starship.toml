@@ -2,7 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 # Keep consecutive prompts compact.
-add_newline = false
+add_newline = true
 
 # Use the Catppuccin Mocha color palette
 palette = 'catppuccin_mocha'
