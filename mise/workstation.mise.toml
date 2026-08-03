@@ -2,6 +2,7 @@ min_version = "2026.7.4"
 
 [settings]
 experimental = true
+minimum_release_age = "1h"
 
 [settings.aqua]
 github_attestations = false
@@ -49,9 +50,11 @@ dive = "latest"
 dust = "latest"
 eza = "latest"
 fastfetch = "latest"
+fd = "latest"
 flux2 = "latest"
 fzf = "latest"
 github-cli = "latest"
+"github:iximiuz/labctl" = "latest"
 go = "latest"
 herdr = "latest"
 jq = "latest"
@@ -70,5 +73,6 @@ shellcheck = "latest"
 shfmt = "latest"
 starship = "latest"
 uv = "latest"
+yazi = "latest"
 yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 zoxide = "latest"

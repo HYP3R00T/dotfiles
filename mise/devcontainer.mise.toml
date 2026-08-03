@@ -40,16 +40,15 @@ run = [
 ]
 
 [tools]
-atuin = "latest"
-starship = "latest"
-zoxide = "latest"
-fzf = "latest"
 bat = "latest"
 bottom = "latest"
+dust = "latest"
 eza = "latest"
-shfmt = "latest"
-shellcheck = "latest"
+fzf = "latest"
 jq = "latest"
 jqp = "latest"
-direnv = "latest"
 ripgrep = "latest"
+shellcheck = "latest"
+shfmt = "latest"
+starship = "latest"
+zoxide = "latest"
