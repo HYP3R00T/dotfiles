@@ -4,7 +4,7 @@ auto_sync = false
 update_check = false
 timezone = "local"
 
-search_mode = "fuzzy"
+search_mode = "daemon-fuzzy"
 filter_mode = "global"
 workspaces = true
 
@@ -41,3 +41,7 @@ syntax_highlight = true
 
 [theme]
 name = "catppuccin-mocha-mauve"
+
+[daemon]
+enabled = true
+autostart = true

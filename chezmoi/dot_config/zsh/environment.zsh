@@ -8,9 +8,9 @@ export COLORTERM=truecolor
 
 # Use Less as the general-purpose pager when available.
 # shellcheck disable=SC2154 # Zsh's $commands associative array.
-if (( $+commands[less] )); then
-    export PAGER=less
-    export LESS='-RFX'
+if (($+commands[less])); then
+  export PAGER=less
+  export LESS='-RF'
 fi
 
 # Keep terminal callers blocked until the edited file is closed in Zed.
@@ -19,8 +19,8 @@ export VISUAL="$EDITOR"
 
 typeset -gU path PATH
 path=(
-    "$HOME/.local/bin"
-    $path
+  "$HOME/.local/bin"
+  $path
 )
 export PATH
 
@@ -31,27 +31,27 @@ typeset -g ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 # Cache shell code emitted by external tools. Regenerate it when the command,
 # command path, or invocation changes (for example, after a Mise upgrade).
 function _zsh_source_command_cache() {
-    local cache_name="$1"
-    shift
+  local cache_name="$1"
+  shift
 
-    local executable="${commands[$1]}"
-    local cache_file="$ZSH_CACHE_DIR/init/$cache_name.zsh"
-    local signature_file="$cache_file.signature"
-    local signature="$executable ${(q)@}"
-    local cached_signature=""
+  local executable="${commands[$1]}"
+  local cache_file="$ZSH_CACHE_DIR/init/$cache_name.zsh"
+  local signature_file="$cache_file.signature"
+  local signature="$executable ${(q)@}"
+  local cached_signature=""
 
-    [[ -r "$signature_file" ]] && cached_signature="$(<"$signature_file")"
+  [[ -r "$signature_file" ]] && cached_signature="$(<"$signature_file")"
 
-    if [[ ! -r "$cache_file" || "$executable" -nt "$cache_file" || "$signature" != "$cached_signature" ]]; then
-        local temporary_file="$cache_file.tmp.$$"
-        if "$@" >| "$temporary_file"; then
-            mv -f -- "$temporary_file" "$cache_file"
-            print -r -- "$signature" >| "$signature_file"
-        else
-            rm -f -- "$temporary_file"
-            [[ -r "$cache_file" ]] || return 1
-        fi
+  if [[ ! -r "$cache_file" || "$executable" -nt "$cache_file" || "$signature" != "$cached_signature" ]]; then
+    local temporary_file="$cache_file.tmp.$$"
+    if "$@" >|"$temporary_file"; then
+      mv -f -- "$temporary_file" "$cache_file"
+      print -r -- "$signature" >|"$signature_file"
+    else
+      rm -f -- "$temporary_file"
+      [[ -r "$cache_file" ]] || return 1
     fi
+  fi
 
-    source "$cache_file"
+  source "$cache_file"
 }

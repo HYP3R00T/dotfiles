@@ -5,12 +5,12 @@
   "icon_theme": {
     "mode": "light",
     "light": "Material Icon Theme",
-    "dark": "Material Icon Theme"
+    "dark": "Material Icon Theme",
   },
   "theme": {
     "mode": "dark",
     "light": "One Light",
-    "dark": "Catppuccin Mocha - No Italics"
+    "dark": "Catppuccin Mocha - No Italics",
   },
   "theme_overrides": {
     "Catppuccin Mocha - No Italics": {
@@ -21,34 +21,34 @@
       "panel.focused_border": "#4E466E",
       "players": [
         {
-          "cursor": "#cba6f7"
-        }
-      ]
-    }
+          "cursor": "#cba6f7",
+        },
+      ],
+    },
   },
   "buffer_font_family": "FiraCode Nerd Font Mono",
   "terminal": {
-    "font_family": "FiraCode Nerd Font Mono"
+    "font_family": "FiraCode Nerd Font Mono",
   },
   "preferred_line_length": 120,
   "soft_wrap": "bounded",
   "file_finder": {
-    "modal_max_width": "medium"
+    "modal_max_width": "medium",
   },
   "scrollbar": {
-    "show": "never"
+    "show": "never",
   },
   "minimap": {
-    "show": "always"
+    "show": "always",
   },
   "gutter": {
-    "min_line_number_digits": 0
+    "min_line_number_digits": 0,
   },
   "indent_guides": {
-    "enabled": false
+    "enabled": false,
   },
   "tab_bar": {
-    "show_tab_bar_buttons": false
+    "show_tab_bar_buttons": false,
   },
   "format_on_save": "on",
   "show_whitespaces": "none",
@@ -59,75 +59,78 @@
     "auto_fold_dirs": false,
     "default_width": 300,
     "dock": "left",
-    "hide_gitignore": false,
+    "hide_gitignore": true,
     "hide_root": true,
     "indent_guides": {
-      "show": "never"
+      "show": "never",
     },
-    "sticky_scroll": false
+    "sticky_scroll": false,
   },
   "outline_panel": {
-    "dock": "left"
+    "dock": "left",
   },
   "collaboration_panel": {
-    "dock": "left"
+    "dock": "left",
   },
 
   "git_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "languages": {
     "Python": {
-      "language_servers": ["ty", "ruff"]
+      "language_servers": ["ty", "ruff"],
     },
     "Markdown": {
-      "show_completions_on_input": false
+      "show_completions_on_input": false,
     },
     "YAML": {
-      "language_servers": [] // undo this once things are fixed
-    }
+      "language_servers": [], // undo this once things are fixed
+    },
   },
   "disable_ai": false,
   "language_models": {
     "opencode": {
       "show_zen_models": false,
       "show_free_models": true,
-      "show_go_models": false
-    }
+      "show_go_models": false,
+    },
   },
   "agent": {
+    "expand_edit_card": false,
+    "expand_terminal_card": false,
+    "play_sound_when_agent_done": "when_hidden",
     "default_model": {
       "provider": "openai-subscribed",
       "model": "gpt-5.6-sol",
       "enable_thinking": true,
-      "effort": "medium"
+      "effort": "medium",
     },
     "show_turn_stats": true,
     "thinking_display": "always_collapsed",
     "auto_compact": {
-      "threshold": "90%"
+      "threshold": "90%",
     },
     "sidebar_side": "right",
     "dock": "right",
     "favorite_models": [],
-    "model_parameters": []
+    "model_parameters": [],
   },
   "agent_servers": {
     "pi-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "codex-acp": {
       "default_config_options": {
-        "mode": "agent"
+        "mode": "agent",
       },
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
   "context_servers": {},
   "show_edit_predictions": false,
   "edit_predictions": {
     "provider": "none",
     "allow_data_collection": "no",
-    "mode": "subtle"
-  }
+    "mode": "subtle",
+  },
 }

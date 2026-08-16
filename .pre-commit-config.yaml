@@ -4,6 +4,9 @@ repos:
     hooks:
       - id: check-json
         files: "\\.json$"
+        exclude:
+          glob:
+            - "chezmoi/**"
         stages: [pre-commit]
       - id: check-toml
         files: "\\.toml$"
