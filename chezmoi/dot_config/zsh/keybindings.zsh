@@ -1,8 +1,14 @@
 # ZLE widgets and keybindings.
 
+clear-screen() {
+  clear
+  zle redisplay
+}
+
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
+zle -N clear-screen
 
 zmodload zsh/terminfo 2>/dev/null
 [[ -n "${terminfo[kcuu1]}" ]] && bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
@@ -14,3 +20,4 @@ bindkey '^[[1;5D' backward-word
 bindkey '^[[1;5C' forward-word
 bindkey '^H' backward-kill-word
 bindkey '^?' backward-delete-char
+bindkey '^L' clear-screen
