@@ -4,7 +4,6 @@ name = "catppuccin"
 
 [theme.custom]
 panel_bg = "reset"
-# accent = "#89b4fa"
 
 [keys]
 prefix = "ctrl+space"
@@ -43,6 +42,7 @@ pane_borders = true
 pane_gaps = true
 show_agent_labels_on_pane_borders = false
 prompt_new_tab_name = false
+confirm_close = false
 
 [ui.sidebar.agents]
 row_gap = 0

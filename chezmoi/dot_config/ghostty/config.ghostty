@@ -15,3 +15,5 @@ window-decoration = none
 # Keep terminal content comfortably away from the window edges.
 window-padding-x = 20
 window-padding-y = 14
+
+confirm-close-surface = false

@@ -20,8 +20,7 @@ source "$ZSH_CONFIG_DIR/integrations/herdr.zsh"
 source "$ZSH_CONFIG_DIR/integrations/flux.zsh"
 source "$ZSH_CONFIG_DIR/integrations/vault.zsh"
 source "$ZSH_CONFIG_DIR/integrations/uv.zsh"
-
-source "$ZSH_CONFIG_DIR/prompt.zsh"
+source "$ZSH_CONFIG_DIR/integrations/starship.zsh"
 
 # Keep plugins last, especially syntax highlighting.
 source "$ZSH_CONFIG_DIR/plugins.zsh"
