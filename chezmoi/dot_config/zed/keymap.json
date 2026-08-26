@@ -47,5 +47,11 @@
     "unbind": {
       "ctrl-enter": "assistant::InlineAssist"
     }
+  },
+  {
+    "context": "Editor && jupyter",
+    "unbind": {
+      "ctrl-shift-enter": "repl::Run"
+    }
   }
 ]
