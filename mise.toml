@@ -1,23 +1,23 @@
 [tools]
-node = "lts"
 prek = "latest"
-shellcheck = "latest"
+rumdl = "latest"
+shellcheck = { version = "latest", os = ["linux", "macos"] }
 shfmt = "latest"
 uv = "latest"
 
 [settings]
 experimental = true
+lockfile = true
 
-[settings.aqua]
-github_attestations = false
+[settings.github]
+use_git_credentials = true
 
 [env]
-_.file = '.env'       # for sensitive data
-UV_LINK_MODE = "copy"
+_.file = ".env"  # for sensitive data
 
 [hooks]
 enter = "bash ./scripts/enter_project.sh"
 
 [tasks.docs]
-run = "zensical serve"
+run = "uvx zensical serve"
 description = "Serve the documentation locally"
