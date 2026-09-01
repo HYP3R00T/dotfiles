@@ -32,7 +32,7 @@ jobs:
           enable-cache: true
 
       - name: Build the site
-        run: uv run zensical build --clean
+        run: uvx zensical build --clean
 
       - name: Publish installer endpoint
         run: cp setup.sh site/setup.sh
