@@ -11,5 +11,11 @@ export FZF_DEFAULT_OPTS=" \
 --color=border:#313244,label:#CDD6F4 \
 --multi"
 
+# Preview the highlighted path in Ctrl-T; keep other fzf pickers unchanged.
+export FZF_CTRL_T_OPTS="
+--preview 'if [ -d {} ]; then command eza --oneline --all --color=always --icons=always --group-directories-first -- {} | head -80; elif [ -f {} ]; then command bat --color=always --style=plain --paging=never --wrap=never --line-range=:300 -- {}; else printf \"No regular file or directory to preview\\n\"; fi'
+--preview-window 'right,55%,border-left,<100(down,50%,border-top)'
+"
+
 # Widget bindings require a terminal-backed line editor.
 [[ -t 0 ]] && _zsh_source_command_cache fzf fzf --zsh
