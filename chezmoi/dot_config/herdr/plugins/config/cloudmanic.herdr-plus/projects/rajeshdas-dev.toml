@@ -1,0 +1,14 @@
+name = "rajeshdas.dev"
+description = "Personal website"
+working_dir = "/home/hyperoot/Projects/rajeshdas.dev"
+
+[[tabs]]
+name = "dev-server"
+command = "mise run dev"
+
+[[tabs]]
+name = "pi"
+command = "pi"
+
+[[tabs]]
+name = "terminal"

@@ -1,0 +1,14 @@
+name = "Notes"
+description = "Notes"
+working_dir = "/home/hyperoot/Projects/notes"
+
+[[tabs]]
+name = "dev-server"
+command = "mise run dev"
+
+[[tabs]]
+name = "pi"
+command = "pi"
+
+[[tabs]]
+name = "terminal"
