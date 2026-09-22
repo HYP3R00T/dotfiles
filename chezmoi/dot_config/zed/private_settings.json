@@ -60,12 +60,16 @@
 		"auto_fold_dirs": false,
 		"default_width": 300,
 		"dock": "left",
-		"hide_gitignore": false,
+		"hide_gitignore": true,
 		"hide_root": true,
 		"indent_guides": {
 			"show": "never"
 		},
-		"sticky_scroll": false
+		"sticky_scroll": false,
+		"scrollbar": {
+			"show": "auto",
+			"horizontal_scroll": false
+		}
 	},
 	"outline_panel": {
 		"dock": "left"
@@ -81,8 +85,29 @@
 		"Python": {
 			"language_servers": ["ty", "ruff"]
 		},
+		"Lua": {
+			"format_on_save": "on",
+			"formatter": "language_server"
+		},
 		"Markdown": {
 			"show_completions_on_input": false
+		},
+		"MDX": {
+			"format_on_save": "on",
+			"formatter": {
+				"external": {
+					"command": "rumdl",
+					"arguments": [
+						"fmt",
+						"--silent",
+						"--flavor",
+						"mdx",
+						"--stdin-filename",
+						"{buffer_path}",
+						"-"
+					]
+				}
+			}
 		},
 		"YAML": {
 			"language_servers": [] // undo this once things are fixed
@@ -145,6 +170,9 @@
 	},
 	"agent_servers": {
 		"pi-acp": {
+			"default_config_options": {
+				"model": "openai-codex/gpt-6-astra"
+			},
 			"type": "registry"
 		},
 		"codex-acp": {
