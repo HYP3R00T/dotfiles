@@ -7,8 +7,8 @@ Mise installs tools and applies dotfiles for Linux workstations, WSL, and Dev Co
 Keep one checkout so the history, deployment sources, and future edits are easy to find. Mise 2026.11.12 or newer is required.
 
 ```bash
-git clone https://github.com/HYP3R00T/dotfiles.git ~/projects/dotfiles
-cd ~/projects/dotfiles
+git clone https://github.com/HYP3R00T/dotfiles.git ~/Projects/dotfiles
+cd ~/Projects/dotfiles
 bash setup.sh workstation --dotfiles-only --dry-run
 ```
 

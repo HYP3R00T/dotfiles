@@ -15,7 +15,7 @@ fi
 
 if [[ -z "$script_dir" || ! -f "$script_dir/scripts/mise.sh" || ! -d "$script_dir/dotfiles" ]]; then
   repo_url="https://github.com/HYP3R00T/dotfiles.git"
-  checkout="$HOME/projects/dotfiles"
+  checkout="$HOME/Projects/dotfiles"
   if [[ ! -e "$checkout" ]]; then
     git clone "$repo_url" "$checkout"
   fi
