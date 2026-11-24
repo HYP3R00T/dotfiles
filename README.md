@@ -22,10 +22,10 @@ curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 
 ## Keep dotfiles in sync
 
-Run these commands from the checkout. The helper defaults to the workstation profile. Pass `wsl` or `devcontainer` as its first argument to select another profile.
+Setup installs `~/.config/mise/conf.d/dotfiles.toml` from the tracked `config/.config/mise/conf.d/dotfiles.toml.tera` template. It points to the checkout used for setup, so the native capture command works outside the repo. For profile-specific deployment previews, run the helper from the checkout and pass `wsl` or `devcontainer` as its first argument when needed.
 
 - **Repo to machine.** Run `git pull --ff-only`, then use `./scripts/dotfiles.sh diff` to preview the profile. Files explicitly listed in the profile, such as the Zed settings and keymap, support `diff <path>` and `apply <path>`.
-- **Machine to repo.** Run `./scripts/dotfiles.sh add --no-apply <path>` to capture a managed file. Review the diff, then stage, commit, and push the selected files.
+- **Machine to repo.** Run `mise dot add --no-apply <path>` to copy a live file into the checkout. Add `--dry-run` to preview the destination. Review the diff, then stage, commit, and push the selected files.
 - **Edit in the repo.** Change the matching file under `config/`, then preview the deployment with `./scripts/dotfiles.sh diff`.
 
 The part of a path after `config/` is its path under `~/`. For example, `config/.zshrc` deploys to `~/.zshrc`, and `config/.config/zsh/aliases.zsh` deploys to `~/.config/zsh/aliases.zsh`. To include a new Omarchy-only file, add a workstation profile entry for it.

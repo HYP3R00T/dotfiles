@@ -26,7 +26,7 @@
 -- o.bind("SUPER + H", nil, "voxtype record toggle")
 -- o.bind("SUPER + PERIOD", nil, { panel = "omarchy.emojis" })
 
--- Step through the current monitor's numbered workspaces, including empty ones.
+-- Cycle through occupied workspaces and one trailing empty slot on this monitor.
 function o.step_numbered_workspace(offset, move_window)
   local function step()
     local monitor = hl.get_active_monitor()
@@ -36,15 +36,45 @@ function o.step_numbered_workspace(offset, move_window)
     end
 
     local first = o.workspaces.workspace_id(monitor, 1)
-    local last = o.workspaces.workspace_id(monitor, 10)
-    local target = workspace.id + offset
-    if target < first or target > last then
+    local last = first + o.workspaces.slots - 1
+    if move_window then
+      local target = workspace.id + offset
+      if target >= first and target <= last then
+        o.workspaces.move_window(target - first + 1)()
+      end
       return
     end
 
-    local slot = target - first + 1
-    local action = move_window and o.workspaces.move_window or o.workspaces.focus
-    action(slot)()
+    local occupied = {}
+    local highest = first - 1
+    for _, candidate in ipairs(hl.get_workspaces()) do
+      local id = candidate.id
+      if not candidate.special and id >= first and id <= last and candidate.windows > 0 then
+        occupied[id] = true
+        highest = math.max(highest, id)
+      end
+    end
+
+    local trailing = math.min(highest + 1, last)
+    local cycle = {}
+    for id = first, trailing do
+      if occupied[id] or id == trailing then
+        cycle[#cycle + 1] = id
+      end
+    end
+
+    local target = offset > 0 and cycle[1] or cycle[#cycle]
+    for index = 1, #cycle do
+      local id = cycle[offset > 0 and index or #cycle - index + 1]
+      if (id - workspace.id) * offset > 0 then
+        target = id
+        break
+      end
+    end
+
+    if target ~= workspace.id then
+      o.workspaces.focus(target - first + 1)()
+    end
   end
 
   o.bind_expressions[step] = string.format("o.step_numbered_workspace(%d, %s)", offset, tostring(move_window))

@@ -26,7 +26,7 @@ curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 
 ## Sync a preference
 
-After changing a live configuration file, capture it into the checkout with mise. For example, this saves an updated Omarchy bar layout without changing the live file.
+Setup generates `~/.config/mise/conf.d/dotfiles.toml` from the tracked template and points it at the checkout used for setup. After changing a live file, use mise from any directory to copy it into the checkout. This example saves an updated Omarchy bar layout without changing the live file.
 
 ```bash
 cd ~/Projects/dotfiles

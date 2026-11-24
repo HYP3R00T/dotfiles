@@ -62,6 +62,10 @@ lazydocker = "latest"
 uv = "latest"
 
 # config/ mirrors the destination home directory.
+[vars]
+dotfiles_checkout = "{{ config_root | dirname }}/config"
+dotfiles_profile = "{{ config_source }}"
+
 [settings.dotfiles]
 root = "{{ config_root }}/../config"
 
@@ -71,6 +75,7 @@ mode = "copy"
 exclude = ["/.config/hypr", "/.config/omarchy"]
 
 [dotfile_groups.home.entries]
+"~/.config/mise/conf.d/dotfiles.toml" = { source = ".config/mise/conf.d/dotfiles.toml.tera", mode = "template" }
 "~/.zshrc" = { mode = "copy" }
 "~/.tmux.conf" = { mode = "copy" }
 "~/.config/zsh" = { mode = "copy" }
