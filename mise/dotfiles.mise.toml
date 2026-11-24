@@ -13,6 +13,7 @@ mode = "copy"
 [dotfile_groups.common.entries]
 "~/.config/atuin/config.toml" = { mode = "copy", permissions = "0600" }
 "~/.config/atuin/themes/catppuccin-mocha-mauve.toml" = { mode = "copy", permissions = "0600" }
+"~/.config/zed/keymap.json" = { mode = "copy" }
 "~/.config/zed/settings.json" = { mode = "copy", permissions = "0600" }
 
 [dotfile_groups.omarchy]
