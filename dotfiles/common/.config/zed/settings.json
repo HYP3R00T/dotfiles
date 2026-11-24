@@ -1,4 +1,8 @@
 {
+	"auto_install_extensions": {
+		"catppuccin": true,
+		"material-icon-theme": true
+	},
 	"base_keymap": "Zed",
 	"show_wrap_guides": true,
 	"cli_default_open_behavior": "existing_window",
