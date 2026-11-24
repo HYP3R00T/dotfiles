@@ -1,6 +1,6 @@
 # Dotfiles
 
-Mise installs tools and applies dotfiles for Linux workstations, WSL, and Dev Containers. The three profiles share the files under `dotfiles/common/` and each has its own package and tool lists under `mise/`. On an Omarchy workstation, setup also includes `dotfiles/omarchy/` for the Hyprland shortcuts and Omarchy shell settings.
+Mise installs tools and applies dotfiles for Linux workstations, WSL, and Dev Containers. The `config/` directory mirrors your home directory. The three setup profiles under `mise/` use that same source tree and each define their own packages and tools. Setup deploys the Hyprland and Omarchy settings on an Omarchy workstation.
 
 ## Setup
 
@@ -22,11 +22,13 @@ curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 
 ## Keep dotfiles in sync
 
-Run these commands from the checkout. The helper selects the Omarchy group on Omarchy and the shared group everywhere else.
+Run these commands from the checkout. The helper defaults to the workstation profile. Pass `wsl` or `devcontainer` as its first argument to select another profile.
 
-- **Repo to machine.** Run `git pull --ff-only`, then use `./scripts/dotfiles.sh diff <path>` and `./scripts/dotfiles.sh apply <path>` for the file you want.
-- **Machine to repo.** Run `./scripts/dotfiles.sh add --group common --no-apply <path>` to capture a shared preference. Use `--group omarchy` for the Hyprland bindings or Omarchy shell config. Review the diff, then stage, commit, and push the selected files.
-- **Edit in the repo.** Change the file under `dotfiles/`, review it with `./scripts/dotfiles.sh diff <path>`, then deploy it with `./scripts/dotfiles.sh apply <path>`.
+- **Repo to machine.** Run `git pull --ff-only`, then use `./scripts/dotfiles.sh diff` to preview the profile. Files explicitly listed in the profile, such as the Zed settings and keymap, support `diff <path>` and `apply <path>`.
+- **Machine to repo.** Run `./scripts/dotfiles.sh add --no-apply <path>` to capture a managed file. Review the diff, then stage, commit, and push the selected files.
+- **Edit in the repo.** Change the matching file under `config/`, then preview the deployment with `./scripts/dotfiles.sh diff`.
+
+The part of a path after `config/` is its path under `~/`. For example, `config/.zshrc` deploys to `~/.zshrc`, and `config/.config/zsh/aliases.zsh` deploys to `~/.config/zsh/aliases.zsh`. To include a new Omarchy-only file, add a workstation profile entry for it.
 
 Mise copies files into place so applications can rewrite their live settings. If a live file already has different content, compare and merge the two versions before replacing it. Keep machine-specific settings, such as monitor geometry, and secrets out of the public repository.
 
@@ -34,10 +36,9 @@ Mise copies files into place so applications can rewrite their live settings. If
 
 | Path | Purpose |
 | --- | --- |
-| `dotfiles/common/` | Shared config files, with paths relative to the home directory |
-| `dotfiles/omarchy/` | Desktop preferences used by Omarchy workstations |
-| `mise/dotfiles.mise.toml` | Mise deployment rules for the shared and Omarchy files |
-| `mise/{workstation,wsl,devcontainer}.mise.toml` | Per-profile packages, tools, and system setup |
+| `config/` | Home-directory layout of saved preferences, including `.zshrc` and `.config/zed/` |
+| `mise.toml` | Development tools and tasks for this repository |
+| `mise/{workstation,wsl,devcontainer}.mise.toml` | Per-profile packages, tools, and dotfile deployment |
 | `setup.sh` | Bootstrap or dotfiles-only setup |
 
 [MIT license](./LICENSE)
