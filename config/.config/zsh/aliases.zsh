@@ -37,6 +37,7 @@ if (($+commands[bat])); then
 fi
 
 if (($+commands[eza])); then
-  alias ls='eza -al --icons --group-directories-first --git --time-style=relative'
+  # Keep interactive listings colorful even in shells that inherit NO_COLOR.
+  alias ls='env -u NO_COLOR eza -al --icons --group-directories-first --git --time-style=relative'
   alias tree='eza --tree --icons --git-ignore -a'
 fi

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-mise_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/../mise" && pwd)"
+repo_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 ensure_mise() {
   if command -v mise >/dev/null; then
@@ -28,19 +28,14 @@ run_mise_profile() {
   local profile="$1"
   shift
 
-  local -a configs=(dotfiles.mise.toml)
-  if [[ -n "$profile" ]]; then
-    configs+=("$profile.mise.toml")
-  fi
+  local mise_dir="$repo_dir/mise"
+  local config="$profile.mise.toml"
+  local -a env_args=()
   if [[ "$profile" == workstation && -f /usr/share/omarchy/default/hypr/omarchy.lua ]]; then
-    configs+=(omarchy.mise.toml)
+    env_args=(-E omarchy)
   fi
 
-  local config
-  for config in "${configs[@]}"; do
-    "$mise_bin" trust "$mise_dir/$config"
-  done
-  local filenames
-  filenames="$(IFS=:; echo "${configs[*]}")"
-  MISE_OVERRIDE_CONFIG_FILENAMES="$filenames" "$mise_bin" -C "$mise_dir" "$@"
+  "$mise_bin" trust "$mise_dir/$config"
+  env -u MISE_ENV MISE_OVERRIDE_CONFIG_FILENAMES="$config" \
+    "$mise_bin" -C "$mise_dir" "${env_args[@]}" "$@"
 }

@@ -13,7 +13,7 @@ if [[ -n "${BASH_SOURCE[0]:-}" ]]; then
   script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
-if [[ -z "$script_dir" || ! -f "$script_dir/scripts/mise.sh" || ! -d "$script_dir/dotfiles" ]]; then
+if [[ -z "$script_dir" || ! -f "$script_dir/scripts/mise.sh" || ! -d "$script_dir/config" ]]; then
   repo_url="https://github.com/HYP3R00T/dotfiles.git"
   checkout="$HOME/Projects/dotfiles"
   if [[ ! -e "$checkout" ]]; then
@@ -24,7 +24,7 @@ if [[ -z "$script_dir" || ! -f "$script_dir/scripts/mise.sh" || ! -d "$script_di
     https://github.com/HYP3R00T/dotfiles|https://github.com/HYP3R00T/dotfiles.git|git@github.com:HYP3R00T/dotfiles.git) ;;
     *) echo "$checkout is not a checkout of HYP3R00T/dotfiles." >&2; exit 1 ;;
   esac
-  if [[ ! -f "$checkout/scripts/mise.sh" || ! -d "$checkout/dotfiles" ]]; then
+  if [[ ! -f "$checkout/scripts/mise.sh" || ! -d "$checkout/config" ]]; then
     echo "Update the dotfiles checkout at $checkout and retry." >&2
     exit 1
   fi

@@ -1,4 +1,4 @@
-min_version = "2026.7.4"
+min_version = "2026.11.12"
 
 [settings]
 experimental = true
@@ -76,3 +76,26 @@ uv = "latest"
 yazi = "latest"
 yt-dlp = { version = "latest", rename_exe = "yt-dlp" }
 zoxide = "latest"
+
+# config/ mirrors the destination home directory.
+[settings.dotfiles]
+root = "{{ config_root }}/../config"
+
+[dotfile_groups.home]
+root = "."
+mode = "copy"
+exclude = ["/.config/hypr", "/.config/omarchy"]
+
+[dotfile_groups.home.entries]
+"~/.zshrc" = { mode = "copy" }
+"~/.tmux.conf" = { mode = "copy" }
+"~/.config/zsh" = { mode = "copy" }
+"~/.config/starship.toml" = { mode = "copy" }
+"~/.config/atuin/config.toml" = { mode = "copy", permissions = "0600" }
+"~/.config/atuin/themes/catppuccin-mocha-mauve.toml" = { mode = "copy", permissions = "0600" }
+"~/.config/zed/keymap.json" = { mode = "copy" }
+"~/.config/zed/settings.json" = { mode = "copy", permissions = "0600" }
+
+# The setup script selects this environment on an Omarchy workstation.
+"~/.config/hypr/bindings.lua" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/omarchy/shell.json" = { mode = "copy", permissions = "0600", variants = [{ profile = "omarchy" }] }

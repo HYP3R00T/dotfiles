@@ -31,9 +31,9 @@
 			]
 		}
 	},
-	"buffer_font_family": "FiraCode Nerd Font Mono",
+	"buffer_font_family": "JetBrainsMono Nerd Font",
 	"terminal": {
-		"font_family": "FiraCode Nerd Font Mono"
+		"font_family": "JetBrainsMono Nerd Font"
 	},
 	"preferred_line_length": 120,
 	"soft_wrap": "bounded",

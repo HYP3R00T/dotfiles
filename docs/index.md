@@ -4,7 +4,7 @@ icon: lucide/rocket
 
 # Linux Dotfiles
 
-Mise sets up Linux workstations, WSL, and Dev Containers. All three profiles use a shared set of dotfiles. Each profile defines its own native packages and development tools. On an Omarchy workstation, setup also deploys the Hyprland shortcuts and shell preferences.
+Mise sets up Linux workstations, WSL, and Dev Containers. All three profiles deploy files from `config/`, which mirrors the home directory. Each profile under `mise/` defines its own packages, tools, and deployment rules. The root `mise.toml` provides development tools and tasks for this repository. On an Omarchy workstation, setup also deploys the Hyprland shortcuts and shell preferences.
 
 ## Install
 
@@ -30,13 +30,13 @@ After changing a live configuration file, capture it into the checkout with mise
 
 ```bash
 cd ~/Projects/dotfiles
-./scripts/dotfiles.sh add --group omarchy --no-apply ~/.config/omarchy/shell.json
-git diff -- dotfiles/omarchy/.config/omarchy/shell.json
+./scripts/dotfiles.sh add --no-apply ~/.config/.config/omarchy/shell.json
+git diff -- config/.config/omarchy/shell.json
 ```
 
-Use `--group common` for a config shared by the three profiles. Review, stage, commit, and push the selected files.
+Mise saves the file under the same home-relative path in `config/`. Review, stage, commit, and push the selected files.
 
-To bring a change from the repo into your machine, pull with `git pull --ff-only`, use `./scripts/dotfiles.sh diff <path>` to preview it, and apply the agreed changes with `./scripts/dotfiles.sh apply <path>`.
+To bring a change from the repo into your machine, pull with `git pull --ff-only`, use `./scripts/dotfiles.sh diff` to preview the profile. Explicit profile entries, such as the two Zed files, support one-file previews and applies.
 
 ## Work on the repository
 
