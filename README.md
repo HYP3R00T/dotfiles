@@ -1,84 +1,43 @@
 # Dotfiles
 
-A cross-platform dotfiles and system bootstrapping toolkit powered by **mise-en-place** and **chezmoi**. It reproducibly configures bare-metal workstations, WSL, and DevContainers from one declarative codebase.
+Mise installs tools and applies dotfiles for Linux workstations, WSL, and Dev Containers. The three profiles share the files under `dotfiles/common/` and each has its own package and tool lists under `mise/`. On an Omarchy workstation, setup also includes `dotfiles/omarchy/` for the Hyprland shortcuts and Omarchy shell settings.
 
-> Zero-to-productive in minutes with one command.
+## Setup
 
-## What It Does
+Keep one checkout so the history, deployment sources, and future edits are easy to find. Mise 2026.11.12 or newer is required.
 
-This repo automates the entire environment setup process:
-
-- Installs native packages and configures the login shell with [`mise bootstrap`](https://mise.jdx.dev/bootstrap.html).
-- Manages language tools and CLIs with [`mise`](https://mise.jdx.dev).
-- Applies dotfiles declaratively using [`chezmoi`](https://www.chezmoi.io).
-- Runs the complete variant-aware workflow through `setup.sh`.
-
-## Repository Layout
-
-```text
-.
-├── chezmoi/             # Dotfiles managed by chezmoi
-├── mise/                 # Self-contained configuration for each variant
-├── scripts/             # Bootstrap helper scripts
-├── mise.toml            # Repository development tools and tasks
-└── setup.sh             # Main entrypoint
+```bash
+git clone https://github.com/HYP3R00T/dotfiles.git ~/projects/dotfiles
+cd ~/projects/dotfiles
+bash setup.sh workstation --dotfiles-only --dry-run
 ```
 
-## Supported Environments
+Use `workstation`, `wsl`, or `devcontainer`. The default is `devcontainer`. Remove `--dry-run` to deploy the dotfiles. Run `bash setup.sh <profile>` for full bootstrap, which also installs native packages and tools, sets the profile's login shell, and configures Git identity.
 
-| Variant | Description |
-| --- | --- |
-| `workstation` | Bare-metal Linux system |
-| `wsl` | Windows Subsystem for Linux |
-| `devcontainer` | Development inside VS Code containers |
+The hosted installer creates or uses the same checkout. An existing checkout can be updated with Git before rerunning setup.
 
-Every variant has a self-contained configuration in `mise/`.
-
-## Quick Start
-
-Run the setup script directly for your target environment:
-
-```shell
-curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
-```
-
-```shell
+```bash
 curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 ```
 
-```shell
-curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- workstation
-```
+## Keep dotfiles in sync
 
-The script performs:
+Run these commands from the checkout. The helper selects the Omarchy group on Omarchy and the shared group everywhere else.
 
-1. Validates that it is running from the dotfiles repository, cloning a temporary copy when necessary.
-2. Runs `mise bootstrap` with the selected variant configuration.
-3. Applies the dotfiles with chezmoi.
+- **Repo to machine.** Run `git pull --ff-only`, then use `./scripts/dotfiles.sh diff <path>` and `./scripts/dotfiles.sh apply <path>` for the file you want.
+- **Machine to repo.** Run `./scripts/dotfiles.sh add --group common --no-apply <path>` to capture a shared preference. Use `--group omarchy` for the Hyprland bindings or Omarchy shell config. Review the diff, then stage, commit, and push the selected files.
+- **Edit in the repo.** Change the file under `dotfiles/`, review it with `./scripts/dotfiles.sh diff <path>`, then deploy it with `./scripts/dotfiles.sh apply <path>`.
 
-## Core Technologies
+Mise copies files into place so applications can rewrite their live settings. If a live file already has different content, compare and merge the two versions before replacing it. Keep machine-specific settings, such as monitor geometry, and secrets out of the public repository.
 
-| Tool | Purpose |
+## Repository layout
+
+| Path | Purpose |
 | --- | --- |
-| mise | Native packages, repositories, user setup, and development tools |
-| chezmoi | Declarative dotfile management |
-| Bash | Initial installation and variant-aware orchestration |
+| `dotfiles/common/` | Shared config files, with paths relative to the home directory |
+| `dotfiles/omarchy/` | Desktop preferences used by Omarchy workstations |
+| `mise/dotfiles.mise.toml` | Mise deployment rules for the shared and Omarchy files |
+| `mise/{workstation,wsl,devcontainer}.mise.toml` | Per-profile packages, tools, and system setup |
+| `setup.sh` | Bootstrap or dotfiles-only setup |
 
-Mise and chezmoi are installed automatically when missing. Mise bootstrap requires mise 2026.7.4 or newer.
-
-## Design Philosophy
-
-- **Declarative**: Environments are described with TOML and chezmoi source files.
-- **Reproducible**: Bootstrap operations converge on the configured state.
-- **Explicit**: Each variant file describes its complete environment.
-- **Focused**: Mise owns machine setup and tools; chezmoi owns dotfiles.
-
-## License
-
-[MIT](./LICENSE)
-
-## Who Should Use This?
-
-- DevOps engineers who want portable environments
-- Developers working across containers, WSL, and Linux
-- Anyone tired of “it works on my machine” dotfiles
+[MIT license](./LICENSE)

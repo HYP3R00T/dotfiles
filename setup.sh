@@ -1,44 +1,43 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# increase the counter
-# curl -fsS -X POST https://counterhub.fastapicloud.dev/count/dotfiles > /dev/null
+variant=devcontainer
+case "${1:-}" in
+  workstation|wsl|devcontainer) variant="$1"; shift ;;
+  --*|"") ;;
+  *) echo "Unknown variant: $1" >&2; exit 1 ;;
+esac
 
-VARIANT="${1:-devcontainer}"
-REPO_URL="https://github.com/HYP3R00T/dotfiles"
-
-# Determine script dir (uses /nonexistent when piped)
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]:-/nonexistent}")" >/dev/null 2>&1 && pwd || echo /nonexistent)"
-
-# If this isn't a dotfiles clone, clone and re-run
-remote_url="$(git -C "$SCRIPT_DIR" remote get-url origin 2>/dev/null || true)"
-if [ ! -d "$SCRIPT_DIR/.git" ] || [ ! -d "$SCRIPT_DIR/scripts" ] || [ -z "$remote_url" ] || ! echo "$remote_url" | grep -q 'HYP3R00T/dotfiles'; then
-  echo "📦 Not a full clone or missing files; cloning dotfiles repo into temp dir..."
-  TMP_DIR="$(mktemp -d)"
-  git clone --depth 1 "$REPO_URL" "$TMP_DIR"
-
-  echo "🚀 Re-running setup.sh from cloned repo with variant: $VARIANT"
-  exec bash "$TMP_DIR/setup.sh" "$VARIANT"
+script_dir=""
+if [[ -n "${BASH_SOURCE[0]:-}" ]]; then
+  script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
 
-# From here on, we're in a full repo clone that has everything
-echo "🏠 Detected local clone at $SCRIPT_DIR — running bootstrap for: $VARIANT"
-
-# Source setup helpers
-source "$SCRIPT_DIR/scripts/mise.sh"
-source "$SCRIPT_DIR/scripts/chezmoi.sh"
-
-main() {
-  case "$VARIANT" in
-  workstation | wsl | devcontainer) ;;
-  *)
-    echo "❌ Unknown variant: $VARIANT"
-    exit 1
-    ;;
+if [[ -z "$script_dir" || ! -f "$script_dir/scripts/mise.sh" || ! -d "$script_dir/dotfiles" ]]; then
+  repo_url="https://github.com/HYP3R00T/dotfiles.git"
+  checkout="$HOME/projects/dotfiles"
+  if [[ ! -e "$checkout" ]]; then
+    git clone "$repo_url" "$checkout"
+  fi
+  origin="$(git -C "$checkout" remote get-url origin 2>/dev/null || true)"
+  case "$origin" in
+    https://github.com/HYP3R00T/dotfiles|https://github.com/HYP3R00T/dotfiles.git|git@github.com:HYP3R00T/dotfiles.git) ;;
+    *) echo "$checkout is not a checkout of HYP3R00T/dotfiles." >&2; exit 1 ;;
   esac
+  if [[ ! -f "$checkout/scripts/mise.sh" || ! -d "$checkout/dotfiles" ]]; then
+    echo "Update the dotfiles checkout at $checkout and retry." >&2
+    exit 1
+  fi
+  exec bash "$checkout/setup.sh" "$variant" "$@"
+fi
 
-  handle_mise "$VARIANT"
-  handle_chezmoi
-}
+# shellcheck source=scripts/mise.sh
+source "$script_dir/scripts/mise.sh"
 
-main
+ensure_mise
+if [[ "${1:-}" == --dotfiles-only ]]; then
+  shift
+  run_mise_profile "$variant" dot apply "$@"
+else
+  run_mise_profile "$variant" bootstrap --yes "$@"
+fi

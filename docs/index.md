@@ -4,95 +4,40 @@ icon: lucide/rocket
 
 # Linux Dotfiles
 
-!!! tip "Quick install"
+Mise sets up Linux workstations, WSL, and Dev Containers. All three profiles use a shared set of dotfiles. Each profile defines its own native packages and development tools. On an Omarchy workstation, setup also deploys the Hyprland shortcuts and shell preferences.
 
-	```bash
-	curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
-	```
+## Install
 
-## Overview
-
-This project bootstraps developer environments across DevContainers, WSL, and workstation Linux machines. Mise installs native packages and development tools, while chezmoi applies dotfiles.
-
-## Features
-
-- One-command bootstrap for default setup.
-- Variant-aware setup for `wsl` and `workstation`.
-- Declarative native packages, repositories, login shell, and development tools through `mise bootstrap`.
-- Declarative dotfile management through chezmoi.
-- DevContainer-first developer workflow for fast onboarding.
-- Self-contained mise configuration for each supported variant.
-
-## Technologies used
-
-- [mise](https://mise.jdx.dev): machine bootstrap, language runtimes, and CLI tool installation.
-- [chezmoi](https://www.chezmoi.io/): declarative dotfile management.
-- Bash: lightweight orchestration through `setup.sh`.
-
-## Goals
-
-- Make environment setup reproducible and fast.
-- Keep per-variant differences small and declarative.
-- Minimize manual steps for new contributors and machines.
-
-## How it works (high level)
-
-1. The top-level `setup.sh` validates whether it's running inside a full repo clone. If not, it clones a fresh copy and re-runs from there.
-2. The script loads the self-contained mise configuration for the selected variant.
-3. `mise bootstrap` converges native packages, Zsh plugins, the login shell, Git identity, and development tools.
-4. Chezmoi applies the shared dotfiles.
-
-## Usage & examples
-
-Default (devcontainer)
+Clone the repository to a permanent location to make it easy to review and sync future changes. Use mise 2026.11.12 or newer.
 
 ```bash
-curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash
+git clone https://github.com/HYP3R00T/dotfiles.git ~/projects/dotfiles
+cd ~/projects/dotfiles
+bash setup.sh workstation --dotfiles-only --dry-run
 ```
 
-WSL
+Use `workstation`, `wsl`, or `devcontainer`. Omit the profile to use `devcontainer`. Remove `--dry-run` to deploy the dotfiles. To install the profile's tools and packages and apply its login-shell and Git settings, run `bash setup.sh <profile>`.
+
+You can also use the hosted installer. It clones to `~/projects/dotfiles` if a checkout is absent.
 
 ```bash
 curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 ```
 
-Workstation
+## Sync a preference
+
+After changing a live configuration file, capture it into the checkout with mise. For example, this saves an updated Omarchy bar layout without changing the live file.
 
 ```bash
-curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- workstation
+cd ~/projects/dotfiles
+./scripts/dotfiles.sh add --group omarchy --no-apply ~/.config/omarchy/shell.json
+git diff -- dotfiles/omarchy/.config/omarchy/shell.json
 ```
 
-Post-run verification (suggested):
+Use `--group common` for a config shared by the three profiles. Review, stage, commit, and push the selected files.
 
-```bash
-$HOME/.local/bin/mise --version || true
-chezmoi --version || true
-```
+To bring a change from the repo into your machine, pull with `git pull --ff-only`, use `./scripts/dotfiles.sh diff <path>` to preview it, and apply the agreed changes with `./scripts/dotfiles.sh apply <path>`.
 
-## Security & best practices
+## Work on the repository
 
-- Treat the one-liner as a convenience for trusted environments. Prefer download+inspect or `git clone` for production systems.
-- You can inspect before running:
-
-```bash
-curl -fsSL -o /tmp/setup.sh https://dotfiles.hyperoot.dev/setup.sh
-less /tmp/setup.sh
-bash /tmp/setup.sh [variant]
-```
-
-- For immutable installs, consider pinning to a commit or a versioned installer path.
-
-## Local development
-
-- Open this repository in VS Code and rebuild/reopen the DevContainer.
-- DevContainer config: [`.devcontainer/devcontainer.json`](https://github.com/HYP3R00T/dotfiles/blob/main/.devcontainer/devcontainer.json)
-- The mise MCP server is configured in `.vscode/mcp.json`.
-- To run the installer locally from a clone:
-
-```bash
-bash setup.sh [variant]
-```
-
-- To run tests or linting locally, use the repo tooling in `pyproject.toml` and `requirements.txt`.
-
-<!-- ## Video / Demo -->
+Open the repo in VS Code and rebuild or reopen its Dev Container to install the development tooling. For setup and sync examples, see the [repository README](https://github.com/HYP3R00T/dotfiles#readme).

@@ -1,0 +1,22 @@
+min_version = "2026.11.12"
+
+[settings.dotfiles]
+root = "{{ config_root }}/../dotfiles"
+default_mode = "copy"
+
+[bootstrap]
+dotfile_groups = ["common"]
+
+[dotfile_groups.common]
+mode = "copy"
+
+[dotfile_groups.common.entries]
+"~/.config/atuin/config.toml" = { mode = "copy", permissions = "0600" }
+"~/.config/atuin/themes/catppuccin-mocha-mauve.toml" = { mode = "copy", permissions = "0600" }
+"~/.config/zed/settings.json" = { mode = "copy", permissions = "0600" }
+
+[dotfile_groups.omarchy]
+mode = "copy"
+
+[dotfile_groups.omarchy.entries]
+"~/.config/omarchy/shell.json" = { mode = "copy", permissions = "0600" }
