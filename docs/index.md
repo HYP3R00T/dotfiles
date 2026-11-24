@@ -11,14 +11,14 @@ Mise sets up Linux workstations, WSL, and Dev Containers. All three profiles use
 Clone the repository to a permanent location to make it easy to review and sync future changes. Use mise 2026.11.12 or newer.
 
 ```bash
-git clone https://github.com/HYP3R00T/dotfiles.git ~/projects/dotfiles
-cd ~/projects/dotfiles
+git clone https://github.com/HYP3R00T/dotfiles.git ~/Projects/dotfiles
+cd ~/Projects/dotfiles
 bash setup.sh workstation --dotfiles-only --dry-run
 ```
 
 Use `workstation`, `wsl`, or `devcontainer`. Omit the profile to use `devcontainer`. Remove `--dry-run` to deploy the dotfiles. To install the profile's tools and packages and apply its login-shell and Git settings, run `bash setup.sh <profile>`.
 
-You can also use the hosted installer. It clones to `~/projects/dotfiles` if a checkout is absent.
+You can also use the hosted installer. It clones to `~/Projects/dotfiles` if a checkout is absent.
 
 ```bash
 curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
@@ -29,7 +29,7 @@ curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 After changing a live configuration file, capture it into the checkout with mise. For example, this saves an updated Omarchy bar layout without changing the live file.
 
 ```bash
-cd ~/projects/dotfiles
+cd ~/Projects/dotfiles
 ./scripts/dotfiles.sh add --group omarchy --no-apply ~/.config/omarchy/shell.json
 git diff -- dotfiles/omarchy/.config/omarchy/shell.json
 ```
