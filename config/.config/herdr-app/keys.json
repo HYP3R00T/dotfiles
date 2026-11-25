@@ -40,8 +40,8 @@
     "alt-[": "tab.prev",
     "ctrl-shift-pagedown": "space.next",
     "ctrl-shift-pageup": "space.prev",
-    "alt-down": "agent.next",
-    "alt-up": "agent.prev",
+    "alt-down": "pane.go:down",
+    "alt-up": "pane.go:up",
     "ctrl-?": "app.help",
     "ctrl-shift-/": "app.help",
     "ctrl-shift-?": "app.help",
@@ -58,7 +58,41 @@
     "ctrl-shift-z": "pane.zoom",
     "ctrl-shift-l": "layout.switch",
     "f2": "tab.rename",
-    "shift-f2": "space.rename"
+    "shift-f2": "space.rename",
+    "alt-pageup": "agent.prev",
+    "alt-pagedown": "agent.next",
+    "ctrl-space space": "mod.open:picker",
+    "ctrl-space shift-k": "space.prev",
+    "alt-shift-up": "space.prev",
+    "ctrl-space shift-j": "space.next",
+    "alt-shift-down": "space.next",
+    "ctrl-space shift-h": "tab.prev",
+    "alt-shift-left": "tab.prev",
+    "ctrl-space shift-l": "tab.next",
+    "alt-shift-right": "tab.next",
+    "ctrl-space h": "pane.go:left",
+    "ctrl-space j": "pane.go:down",
+    "ctrl-space k": "pane.go:up",
+    "ctrl-space l": "pane.go:right",
+    "ctrl-space |": "pane.split:right",
+    "ctrl-space shift-backslash": "pane.split:right",
+    "ctrl-space shift-r left": "pane.resize:left",
+    "ctrl-space shift-r h": "pane.resize:left",
+    "ctrl-space shift-r down": "pane.resize:down",
+    "ctrl-space shift-r j": "pane.resize:down",
+    "ctrl-space shift-r up": "pane.resize:up",
+    "ctrl-space shift-r k": "pane.resize:up",
+    "ctrl-space shift-r right": "pane.resize:right",
+    "ctrl-space shift-r l": "pane.resize:right",
+    "ctrl-space g": {
+      "command": "terminal.open",
+      "args": {
+        "argv": [
+          "lazygit"
+        ],
+        "name": "lazygit"
+      }
+    }
   },
   "terminal": {
     "ctrl-backspace": "send:\u0017",
