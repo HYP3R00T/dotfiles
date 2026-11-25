@@ -108,6 +108,7 @@ exclude = ["/.config/herdr-app", "/.config/hypr", "/.config/omarchy"]
 "~/.config/omarchy/plugins/hyperoot.workspaces/Workspaces.qml" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 
 # Herdr Desktop preferences and Carbon assets.
+"~/.config/herdr-core/config.toml" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/herdr-app/keys.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/herdr-app/layouts/carbon.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/herdr-app/mods/carbon-changes/changes.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }

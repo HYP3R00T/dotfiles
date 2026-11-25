@@ -29,6 +29,11 @@
 					"cursor": "#cba6f7"
 				}
 			]
+		},
+		"GitHub Dark": {
+			"border.variant": "#1e1e2e",
+			"border": "#111111",
+			"panel.focused_border": "#4E466E",
 		}
 	},
 	"buffer_font_family": "JetBrainsMono Nerd Font",
