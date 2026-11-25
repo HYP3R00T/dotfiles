@@ -88,7 +88,7 @@ root = "{{ config_root }}/../config"
 [dotfile_groups.home]
 root = "."
 mode = "copy"
-exclude = ["/.config/hypr", "/.config/omarchy"]
+exclude = ["/.config/herdr-app", "/.config/hypr", "/.config/omarchy"]
 
 [dotfile_groups.home.entries]
 "~/.config/mise/conf.d/dotfiles.toml" = { source = ".config/mise/conf.d/dotfiles.toml.tera", mode = "template" }
@@ -106,3 +106,18 @@ exclude = ["/.config/hypr", "/.config/omarchy"]
 "~/.config/omarchy/shell.json" = { mode = "copy", permissions = "0600", variants = [{ profile = "omarchy" }] }
 "~/.config/omarchy/plugins/hyperoot.workspaces/manifest.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/omarchy/plugins/hyperoot.workspaces/Workspaces.qml" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+
+# Herdr Desktop preferences and Carbon assets.
+"~/.config/herdr-app/keys.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/layouts/carbon.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-changes/changes.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-changes/main.js" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-changes/mod.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/chevron-down.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/chevron-right.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/file.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/folder.svg" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/main.js" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/mods/carbon-files/mod.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/settings.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/themes/carbon-violet.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }

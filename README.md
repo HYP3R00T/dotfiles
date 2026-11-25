@@ -20,6 +20,12 @@ The hosted installer creates or uses the same checkout. An existing checkout can
 curl -fsSL https://dotfiles.hyperoot.dev/setup.sh | bash -s -- wsl
 ```
 
+### Herdr Desktop on Omarchy
+
+The workstation profile restores the Carbon layout, Carbon Violet theme, docked Files and Changes panels, keyboard settings, and Hyprland shortcut and border rule. Install Herdr Desktop separately, then select **Carbon** under **Settings → Look** on first launch. Herdr remembers the selection locally.
+
+The panels are adapted from [Herdr Desktop v0.1.18](https://github.com/herdrdev/herdr-app/tree/v0.1.18). See the [Herdr license](./config/.config/herdr-app/LICENSE-Herdr.txt) and [Lucide icon notices](./config/.config/herdr-app/LICENSE-Lucide.txt).
+
 ## Keep dotfiles in sync
 
 Setup installs `~/.config/mise/conf.d/dotfiles.toml` from the tracked `config/.config/mise/conf.d/dotfiles.toml.tera` template. It points to the checkout used for setup, so the native capture command works outside the repo. For profile-specific deployment previews, run the helper from the checkout and pass `wsl` or `devcontainer` as its first argument when needed.

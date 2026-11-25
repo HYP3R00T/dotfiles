@@ -91,3 +91,7 @@ o.rebind("SUPER + SHIFT + UP", "Move window to previous workspace", o.step_numbe
 -- Open the searchable app list when Super is released on its own.
 o.bind("SUPER + Super_L", "Search apps", "omarchy-shell omarchy.dock apps", { release = true })
 o.bind("SUPER + Super_R", "Search apps", "omarchy-shell omarchy.dock apps", { release = true })
+
+-- Open or focus Herdr Desktop with the main terminal shortcut.
+o.rebind("SUPER + RETURN", "Herdr Desktop", { launch = "herdr-app", focus = "herdr-app" })
+o.window("^herdr-app$", { border_size = 0 })
