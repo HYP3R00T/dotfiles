@@ -187,6 +187,6 @@
   ],
   "theme": {
     "light": "paper",
-    "dark": "carbon-violet"
+    "dark": "linear-carbon"
   }
 }

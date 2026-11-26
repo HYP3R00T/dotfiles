@@ -123,3 +123,4 @@ exclude = ["/.config/herdr-app", "/.config/hypr", "/.config/omarchy"]
 "~/.config/herdr-app/mods/carbon-files/mod.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/herdr-app/settings.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
 "~/.config/herdr-app/themes/carbon-violet.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
+"~/.config/herdr-app/themes/linear-carbon.json" = { mode = "copy", variants = [{ profile = "omarchy" }] }
